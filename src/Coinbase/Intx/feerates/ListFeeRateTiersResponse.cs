@@ -14,29 +14,10 @@
  * limitations under the License.
  */
 
-namespace Coinbase.Intx.Assets
+namespace Coinbase.Intx.FeeRates
 {
-  public class ListAssetsResponse
+  public class ListFeeRateTiersResponse
   {
-    public Asset[] Assets { get; set; } = [];
-
-    public class ListAssetsResponseBuilder
-    {
-      private Asset[] _assets = [];
-
-      public ListAssetsResponseBuilder WithAssets(Asset[] assets)
-      {
-        this._assets = assets;
-        return this;
-      }
-
-      public ListAssetsResponse Build()
-      {
-        return new ListAssetsResponse
-        {
-          Assets = this._assets
-        };
-      }
-    }
+    public FeeRate[] Results { get; set; } = [];
   }
 }
