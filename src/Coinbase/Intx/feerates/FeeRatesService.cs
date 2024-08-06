@@ -22,7 +22,7 @@ namespace Coinbase.Intx.FeeRates
   using Coinbase.Core.Service;
   public class FeeRatesService(ICoinbaseClient client) : CoinbaseService(client)
   {
-    public ListFeeRateTiersResponse ListFeeRates(CallOptions? options = null)
+    public ListFeeRateTiersResponse ListFeeRateTiers(CallOptions? options = null)
     {
       return this.Request<ListFeeRateTiersResponse>(
         HttpMethod.Get,
@@ -32,7 +32,7 @@ namespace Coinbase.Intx.FeeRates
         options);
     }
 
-    public Task<ListFeeRateTiersResponse> ListFeeRatesAsync(
+    public Task<ListFeeRateTiersResponse> ListFeeRateTiersAsync(
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
