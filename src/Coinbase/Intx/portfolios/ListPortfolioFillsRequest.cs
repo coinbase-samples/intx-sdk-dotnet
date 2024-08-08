@@ -102,6 +102,10 @@ namespace Coinbase.Intx.Portfolios
         return this;
       }
 
+      /// <summary>
+      /// Validates the request.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">If <see cref="_portfolio"/> is null, empty or whitespace.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(this._portfolio))
@@ -110,6 +114,11 @@ namespace Coinbase.Intx.Portfolios
         }
       }
 
+      /// <summary>
+      /// Builds the <see cref="ListPortfolioFillsRequest"/>.
+      /// </summary>
+      /// <returns><see cref="ListPortfolioFillsRequest">.</returns>
+      /// <exception cref="CoinbaseClientException">If <see cref="_portfolio"/> is null, empty or whitespace.</exception>
       public ListPortfolioFillsRequest Build()
       {
         return new ListPortfolioFillsRequest(this._portfolio!)

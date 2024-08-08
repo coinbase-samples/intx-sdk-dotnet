@@ -31,6 +31,10 @@ namespace Coinbase.Intx.Assets
         return this;
       }
 
+      /// <summary>
+      /// Validates the request.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">If <see cref="_asset"/> is null, empty, or whitespace.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(this._asset))
@@ -39,6 +43,11 @@ namespace Coinbase.Intx.Assets
         }
       }
 
+      /// <summary>
+      /// Builds the <see cref="GetSupportedNetworksRequest"/>. 
+      /// </summary>
+      /// <returns><see cref="GetSupportedNetworksRequest"/>.</returns> 
+      /// <exception cref="CoinbaseClientException">If <see cref="_asset"/> is null, empty, or whitespace.</exception>
       public GetSupportedNetworksRequest Build()
       {
         this.Validate();
