@@ -16,9 +16,18 @@
 
 namespace Coinbase.Intx.Portfolios
 {
-  public class GetBalanceForPortfolioAssetRequest(string portfolio, string asset)
+  public class TransferFundsRequest(
+    string from,
+    string to,
+    string asset,
+    string amount)
   {
-    public string Portfolio { get; set; } = portfolio;
+    public string From { get; set; } = from;
+
+    public string To { get; set; } = to;
+
     public string Asset { get; set; } = asset;
+
+    public string Amount { get; set; } = amount;
   }
 }

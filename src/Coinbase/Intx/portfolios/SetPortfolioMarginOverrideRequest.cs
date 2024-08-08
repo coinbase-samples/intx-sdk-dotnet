@@ -16,9 +16,13 @@
 
 namespace Coinbase.Intx.Portfolios
 {
-  public class GetBalanceForPortfolioAssetRequest(string portfolio, string asset)
+  using System.Text.Json.Serialization;
+  public class SetPortfolioMarginOverrideRequest(string portfolioId)
   {
-    public string Portfolio { get; set; } = portfolio;
-    public string Asset { get; set; } = asset;
+    [JsonPropertyName("portfolio_id")]
+    public string PortfolioId { get; set; } = portfolioId;
+
+    [JsonPropertyName("margin_override")]
+    public string? MarginOverride { get; set; }
   }
 }

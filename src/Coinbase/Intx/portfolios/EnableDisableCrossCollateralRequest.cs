@@ -17,10 +17,10 @@
 namespace Coinbase.Intx.Portfolios
 {
   using System.Text.Json.Serialization;
-  public class EnableDisableCrossCollateralRequest
+  public class EnableDisableCrossCollateralRequest(string portfolio)
   {
     [JsonIgnore]
-    public string? Portfolio { get; set; }
+    public string Portfolio { get; set; } = portfolio;
 
     public bool? Enabled { get; set; }
   }

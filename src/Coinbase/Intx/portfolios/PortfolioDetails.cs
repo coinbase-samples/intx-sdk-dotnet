@@ -16,13 +16,13 @@
 
 namespace Coinbase.Intx.Portfolios
 {
-  public class PortfolioDetail
+  public class PortfolioDetails
   {
     public Summary? Summary { get; set; }
     public Balance[] Balances { get; set; } = [];
     public Position[] Positions { get; set; } = [];
 
-    public PortfolioDetail()
+    public PortfolioDetails()
     {
     }
 
@@ -54,9 +54,9 @@ namespace Coinbase.Intx.Portfolios
         return this;
       }
 
-      public PortfolioDetail Build()
+      public PortfolioDetails Build()
       {
-        return new PortfolioDetail
+        return new PortfolioDetails
         {
           Summary = this._summary,
           Balances = this._balances,

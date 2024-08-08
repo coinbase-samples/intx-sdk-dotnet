@@ -14,11 +14,24 @@
  * limitations under the License.
  */
 
+
 namespace Coinbase.Intx.Portfolios
 {
-  public class GetBalanceForPortfolioAssetRequest(string portfolio, string asset)
+  using System.Text.Json.Serialization;
+  public class PatchPortfolioRequest(string portfolio)
   {
     public string Portfolio { get; set; } = portfolio;
-    public string Asset { get; set; } = asset;
+
+    [JsonPropertyName("auto_margin_enabled")]
+    public bool? AutoMarginEnabled { get; set; }
+
+    [JsonPropertyName("cross_collateral_enabled")]
+    public bool? CrossCollateralEnabled { get; set; }
+
+    [JsonPropertyName("position_offsets_enabled")]
+    public bool? PositionOffsetsEnabled { get; set; }
+
+    [JsonPropertyName("portfolio_name")]
+    public string? PortfolioName { get; set; }
   }
 }

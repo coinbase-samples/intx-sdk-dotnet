@@ -16,9 +16,12 @@
 
 namespace Coinbase.Intx.Portfolios
 {
-  public class GetBalanceForPortfolioAssetRequest(string portfolio, string asset)
+  using System.Text.Json.Serialization;
+  public class UpdatePortfolioRequest(string portfolio)
   {
+    [JsonIgnore]
     public string Portfolio { get; set; } = portfolio;
-    public string Asset { get; set; } = asset;
+
+    public string? Name { get; set; }
   }
 }
