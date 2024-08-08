@@ -14,10 +14,18 @@
  * limitations under the License.
  */
 
-namespace Coinbase.Intx.Portfolios
+using System.Text.Json.Serialization;
+
+namespace Coinbase.Intx.Transfers
 {
-  public class UpdatePortfolioResponse
+  public class CryptoAddress
   {
-    public Portfolio? Portfolio { get; set; }
+    public string? Address { get; set; }
+
+    [JsonPropertyName("destination_tag")]
+    public string? DestinationTag { get; set; }
+
+    [JsonPropertyName("network_arn_id")]
+    public string? NetworkArnId { get; set; }
   }
 }

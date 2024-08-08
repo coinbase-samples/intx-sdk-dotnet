@@ -14,10 +14,14 @@
  * limitations under the License.
  */
 
-namespace Coinbase.Intx.Portfolios
+namespace Coinbase.Intx.Transfers
 {
-  public class UpdatePortfolioResponse
+  using Coinbase.Intx.Common;
+
+  public class ListTransfersResponse
   {
-    public Portfolio? Portfolio { get; set; }
+    public Pagination? Pagination { get; set; }
+
+    public Transfer[] Results { get; set; } = [];
   }
 }

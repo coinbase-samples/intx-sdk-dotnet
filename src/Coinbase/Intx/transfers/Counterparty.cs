@@ -14,10 +14,16 @@
  * limitations under the License.
  */
 
-namespace Coinbase.Intx.Portfolios
+using System.Text.Json.Serialization;
+
+namespace Coinbase.Intx.Transfers
 {
-  public class UpdatePortfolioResponse
+  public class Counterparty
   {
-    public Portfolio? Portfolio { get; set; }
+    [JsonPropertyName("portfolio_uuid")]
+    public string? PortfolioUUID { get; set; }
+
+    [JsonPropertyName("counterparty_id")]
+    public string? CounterpartyId { get; set; }
   }
 }

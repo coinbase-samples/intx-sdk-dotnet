@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-namespace Coinbase.Intx.Portfolios
+namespace Coinbase.Intx.Transfers
 {
-  public class UpdatePortfolioResponse
+  public class CreateCounterpartyIdResponse
   {
-    public Portfolio? Portfolio { get; set; }
+    public Counterparty? Counterparty { get; set; }
   }
 }

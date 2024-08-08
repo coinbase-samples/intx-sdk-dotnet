@@ -14,10 +14,15 @@
  * limitations under the License.
  */
 
-namespace Coinbase.Intx.Portfolios
+namespace Coinbase.Intx.Transfers
 {
-  public class UpdatePortfolioResponse
+  public enum TransferType
   {
-    public Portfolio? Portfolio { get; set; }
+    DEPOSIT,
+    WITHDRAW,
+    STIPEND,
+    INTERNAL,
+    FUNDING,
+    ALL
   }
 }
