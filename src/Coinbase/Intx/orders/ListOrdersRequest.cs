@@ -41,7 +41,7 @@ namespace Coinbase.Intx.Orders
     public OrderSide? Side { get; set; }
 
     [JsonPropertyName("ref_datetime")]
-    public string? RefDateTime { get; set; }
+    public DateTimeOffset? RefDateTime { get; set; }
 
     [JsonPropertyName("result_limit")]
     public int? ResultLimit { get; set; }
@@ -58,7 +58,7 @@ namespace Coinbase.Intx.Orders
       private EventType? _eventType;
       private OrderType? _orderType;
       private OrderSide? _side;
-      private string? _refDateTime;
+      private DateTimeOffset? _refDateTime;
       private int? _resultLimit;
       private int? _resultOffset;
 
@@ -104,7 +104,7 @@ namespace Coinbase.Intx.Orders
         return this;
       }
 
-      public ListOrdersRequestBuilder WithRefDateTime(string refDateTime)
+      public ListOrdersRequestBuilder WithRefDateTime(DateTimeOffset refDateTime)
       {
         this._refDateTime = refDateTime;
         return this;

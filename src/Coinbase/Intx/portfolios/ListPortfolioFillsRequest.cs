@@ -32,7 +32,7 @@ namespace Coinbase.Intx.Portfolios
     public string? ClientOrderId { get; set; }
 
     [JsonPropertyName("ref_datetime")]
-    public string? RefDatetime { get; set; }
+    public DateTimeOffset? RefDatetime { get; set; }
 
     [JsonPropertyName("result_limit")]
     public int? ResultLimit { get; set; }
@@ -41,17 +41,17 @@ namespace Coinbase.Intx.Portfolios
     public int? ResultOffset { get; set; }
 
     [JsonPropertyName("time_from")]
-    public string? TimeFrom { get; set; }
+    public DateTimeOffset? TimeFrom { get; set; }
 
     public class ListPortfolioFillsRequestBuilder
     {
       private string? _portfolio;
       private string? _orderId;
       private string? _clientOrderId;
-      private string? _refDatetime;
+      private DateTimeOffset? _refDatetime;
       private int? _resultLimit;
       private int? _resultOffset;
-      private string? _timeFrom;
+      private DateTimeOffset? _timeFrom;
 
       public ListPortfolioFillsRequestBuilder WithPortfolio(string portfolio)
       {
@@ -71,7 +71,7 @@ namespace Coinbase.Intx.Portfolios
         return this;
       }
 
-      public ListPortfolioFillsRequestBuilder WithRefDatetime(string refDatetime)
+      public ListPortfolioFillsRequestBuilder WithRefDatetime(DateTimeOffset refDatetime)
       {
         this._refDatetime = refDatetime;
         return this;
@@ -89,7 +89,7 @@ namespace Coinbase.Intx.Portfolios
         return this;
       }
 
-      public ListPortfolioFillsRequestBuilder WithTimeFrom(string timeFrom)
+      public ListPortfolioFillsRequestBuilder WithTimeFrom(DateTimeOffset timeFrom)
       {
         this._timeFrom = timeFrom;
         return this;

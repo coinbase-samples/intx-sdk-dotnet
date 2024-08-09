@@ -47,7 +47,7 @@ namespace Coinbase.Intx.Orders
     public string? StopLimitPrice { get; set; }
 
     [JsonPropertyName("expire_time")]
-    public string? ExpireTime { get; set; }
+    public DateTimeOffset? ExpireTime { get; set; }
 
     [JsonPropertyName("portfolio")]
     public string? Portfolio { get; set; }
@@ -74,7 +74,7 @@ namespace Coinbase.Intx.Orders
       public string? _price;
       public string? _stopPrice;
       public string? _stopLimitPrice;
-      public string? _expireTime;
+      public DateTimeOffset? _expireTime;
       public string? _portfolio;
       public string? _user;
       public string? _stpMode;
@@ -136,7 +136,7 @@ namespace Coinbase.Intx.Orders
         return this;
       }
 
-      public Builder WithExpireTime(string? expireTime)
+      public Builder WithExpireTime(DateTimeOffset? expireTime)
       {
         this._expireTime = expireTime;
         return this;

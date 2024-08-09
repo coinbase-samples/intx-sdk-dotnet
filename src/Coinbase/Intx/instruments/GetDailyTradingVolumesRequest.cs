@@ -31,7 +31,7 @@ namespace Coinbase.Intx.Instruments
     public int? ResultOffset { get; set; }
 
     [JsonPropertyName("time_from")]
-    public string? TimeFrom { get; set; }
+    public DateTimeOffset? TimeFrom { get; set; }
 
     [JsonPropertyName("show_other")]
     public bool? ShowOther { get; set; }
@@ -41,7 +41,7 @@ namespace Coinbase.Intx.Instruments
       private string? _instruments;
       private int? _resultLimit;
       private int? _resultOffset;
-      private string? _timeFrom;
+      private DateTimeOffset? _timeFrom;
       private bool? _showOther;
 
       public GetDailyTradingVolumesRequestBuilder WithInstruments(string instruments)
@@ -62,7 +62,7 @@ namespace Coinbase.Intx.Instruments
         return this;
       }
 
-      public GetDailyTradingVolumesRequestBuilder WithTimeFrom(string timeFrom)
+      public GetDailyTradingVolumesRequestBuilder WithTimeFrom(DateTimeOffset timeFrom)
       {
         this._timeFrom = timeFrom;
         return this;

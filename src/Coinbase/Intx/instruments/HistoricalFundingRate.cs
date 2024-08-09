@@ -30,7 +30,7 @@ namespace Coinbase.Intx.Instruments
     public double? MarkPrice { get; set; }
 
     [JsonPropertyName("event_time")]
-    public string? EventTime { get; set; }
+    public DateTimeOffset? EventTime { get; set; }
 
     [JsonPropertyName("pagination")]
     public Pagination? Pagination { get; set; }
@@ -42,7 +42,7 @@ namespace Coinbase.Intx.Instruments
       private string? _instrumentId;
       private double? _fundingRate;
       private double? _markPrice;
-      private string? _eventTime;
+      private DateTimeOffset? _eventTime;
       private Pagination? _pagination;
 
       public HistoricalFundingRateBuilder WithInstrumentId(string instrumentId)
@@ -63,7 +63,7 @@ namespace Coinbase.Intx.Instruments
         return this;
       }
 
-      public HistoricalFundingRateBuilder WithEventTime(string eventTime)
+      public HistoricalFundingRateBuilder WithEventTime(DateTimeOffset eventTime)
       {
         this._eventTime = eventTime;
         return this;

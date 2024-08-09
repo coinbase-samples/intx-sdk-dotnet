@@ -57,7 +57,7 @@ namespace Coinbase.Intx.Instruments
     public string? PredictedFunding { get; set; }
 
     [JsonPropertyName("timestamp")]
-    public string? Timestamp { get; set; }
+    public DateTimeOffset? Timestamp { get; set; }
 
     public Quote() { }
   }

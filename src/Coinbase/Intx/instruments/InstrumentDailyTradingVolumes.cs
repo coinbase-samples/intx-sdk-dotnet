@@ -23,7 +23,7 @@ namespace Coinbase.Intx.Instruments
     public class Result
     {
       [JsonPropertyName("timestamp")]
-      public string? Timestamp { get; set; }
+      public DateTimeOffset? Timestamp { get; set; }
 
       [JsonPropertyName("instruments")]
       public InstrumentSubset[]? Instruments { get; set; } = [];

@@ -75,7 +75,7 @@ namespace Coinbase.Intx.Portfolios
     public string? FilledVwap { get; set; }
 
     [JsonPropertyName("expire_time")]
-    public string? ExpireTime { get; set; }
+    public DateTimeOffset? ExpireTime { get; set; }
 
     [JsonPropertyName("stop_price")]
     public string? StopPrice { get; set; }
@@ -102,7 +102,7 @@ namespace Coinbase.Intx.Portfolios
     public string? OrderStatus { get; set; }
 
     [JsonPropertyName("event_time")]
-    public string? EventTime { get; set; }
+    public DateTimeOffset? EventTime { get; set; }
 
     public Fill() { }
 
@@ -126,7 +126,7 @@ namespace Coinbase.Intx.Portfolios
       public string? _limitPrice;
       public string? _totalFilled;
       public string? _filledVwap;
-      public string? _expireTime;
+      public DateTimeOffset? _expireTime;
       public string? _stopPrice;
       public OrderSide? _side;
       public string? _tif;
@@ -135,7 +135,7 @@ namespace Coinbase.Intx.Portfolios
       public string? _fee;
       public string? _feeAsset;
       public string? _orderStatus;
-      public string? _eventTime;
+      public DateTimeOffset? _eventTime;
 
       public Builder() { }
 
@@ -247,7 +247,7 @@ namespace Coinbase.Intx.Portfolios
         return this;
       }
 
-      public Builder WithExpireTime(string? expireTime)
+      public Builder WithExpireTime(DateTimeOffset? expireTime)
       {
         this._expireTime = expireTime;
         return this;
@@ -301,7 +301,7 @@ namespace Coinbase.Intx.Portfolios
         return this;
       }
 
-      public Builder WithEventTime(string? eventTime)
+      public Builder WithEventTime(DateTimeOffset? eventTime)
       {
         this._eventTime = eventTime;
         return this;

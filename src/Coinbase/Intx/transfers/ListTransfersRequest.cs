@@ -24,10 +24,10 @@ namespace Coinbase.Intx.Transfers
     public string? Portfolios { get; set; }
 
     [JsonPropertyName("time_from")]
-    public string? TimeFrom { get; set; }
+    public DateTimeOffset? TimeFrom { get; set; }
 
     [JsonPropertyName("time_to")]
-    public string? TimeTo { get; set; }
+    public DateTimeOffset? TimeTo { get; set; }
 
     [JsonPropertyName("result_limit")]
     public int? ResultLimit { get; set; }
@@ -42,8 +42,8 @@ namespace Coinbase.Intx.Transfers
     public class ListTransfersRequestBuilder
     {
       private string? _portfolios;
-      private string? _timeFrom;
-      private string? _timeTo;
+      private DateTimeOffset? _timeFrom;
+      private DateTimeOffset? _timeTo;
       private int? _resultLimit;
       private int? _resultOffset;
       private TransferStatus? _status;
@@ -55,13 +55,13 @@ namespace Coinbase.Intx.Transfers
         return this;
       }
 
-      public ListTransfersRequestBuilder WithTimeFrom(string timeFrom)
+      public ListTransfersRequestBuilder WithTimeFrom(DateTimeOffset timeFrom)
       {
         this._timeFrom = timeFrom;
         return this;
       }
 
-      public ListTransfersRequestBuilder WithTimeTo(string timeTo)
+      public ListTransfersRequestBuilder WithTimeTo(DateTimeOffset timeTo)
       {
         this._timeTo = timeTo;
         return this;

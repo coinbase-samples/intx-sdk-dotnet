@@ -62,7 +62,7 @@ namespace Coinbase.Intx.Orders
     public string? Tif { get; set; }
 
     [JsonPropertyName("expire_time")]
-    public string? ExpireTime { get; set; }
+    public DateTimeOffset? ExpireTime { get; set; }
 
     [JsonPropertyName("stp_mode")]
     public string? StpMode { get; set; }
@@ -71,10 +71,10 @@ namespace Coinbase.Intx.Orders
     public string? EventType { get; set; }
 
     [JsonPropertyName("event_time")]
-    public string? EventTime { get; set; }
+    public DateTimeOffset? EventTime { get; set; }
 
     [JsonPropertyName("submit_time")]
-    public string? SubmitTime { get; set; }
+    public DateTimeOffset? SubmitTime { get; set; }
 
     [JsonPropertyName("order_status")]
     public string? OrderStatus { get; set; }
@@ -115,11 +115,11 @@ namespace Coinbase.Intx.Orders
       public string? _stopLimitPrice;
       public string? _size;
       public string? _tif;
-      public string? _expireTime;
+      public DateTimeOffset? _expireTime;
       public string? _stpMode;
       public string? _eventType;
-      public string? _eventTime;
-      public string? _submitTime;
+      public DateTimeOffset? _eventTime;
+      public DateTimeOffset? _submitTime;
       public string? _orderStatus;
       public string? _leavesQty;
       public string? _execQty;
@@ -214,7 +214,7 @@ namespace Coinbase.Intx.Orders
         return this;
       }
 
-      public Builder WithExpireTime(string? expireTime)
+      public Builder WithExpireTime(DateTimeOffset? expireTime)
       {
         this._expireTime = expireTime;
         return this;
@@ -232,13 +232,13 @@ namespace Coinbase.Intx.Orders
         return this;
       }
 
-      public Builder WithEventTime(string? eventTime)
+      public Builder WithEventTime(DateTimeOffset? eventTime)
       {
         this._eventTime = eventTime;
         return this;
       }
 
-      public Builder WithSubmitTime(string? submitTime)
+      public Builder WithSubmitTime(DateTimeOffset? submitTime)
       {
         this._submitTime = submitTime;
         return this;

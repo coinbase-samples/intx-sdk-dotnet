@@ -21,7 +21,7 @@ namespace Coinbase.Intx.Assets
   public class SupportedNetwork
   {
     [JsonPropertyName("asset_id")]
-    public long? AssetId { get; set; }
+    public string? AssetId { get; set; }
 
     [JsonPropertyName("asset_uuid")]
     public string? AssetUuid { get; set; }
@@ -57,7 +57,7 @@ namespace Coinbase.Intx.Assets
 
     public class SupportedNetworksBuilder
     {
-      private long? _assetId;
+      private string? _assetId;
       private string? _assetUuid;
       private string? _assetName;
       private string? _networkArnId;
@@ -69,7 +69,7 @@ namespace Coinbase.Intx.Assets
       private string? _networkName;
       private string? _displayName;
 
-      public SupportedNetworksBuilder WithAssetId(long assetId)
+      public SupportedNetworksBuilder WithAssetId(string assetId)
       {
         this._assetId = assetId;
         return this;
