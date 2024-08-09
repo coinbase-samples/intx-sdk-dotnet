@@ -18,6 +18,7 @@ namespace Coinbase.IntxExample.Example
 {
   using System.Text.Json;
   using Coinbase.Core.Credentials;
+  using Coinbase.Core.Error;
   using Coinbase.Intx.Client;
   using Coinbase.Intx.Portfolios;
 
@@ -32,13 +33,27 @@ namespace Coinbase.IntxExample.Example
         return;
       }
 
-      var credentials = JsonSerializer.Deserialize<CoinbaseCredentials>(credentialsBlob);
-
+      var credentials = JsonSerializer.Deserialize<CoinbaseCredentials>(credentialsBlob, new JsonSerializerOptions(JsonSerializerDefaults.Web));
       var client = new CoinbaseIntxClient(credentials!);
 
       var portfolioService = new PortfoliosService(client);
 
-
+      try {
+        ListPortfoliosResponse listPortfoliosResponse = portfolioService.ListPortfolios();
+        foreach (Portfolio portfolio in listPortfoliosResponse.Portfolios)
+        {
+          Console.WriteLine($"Portfolio ID: {portfolio.PortfolioId}");
+          Console.WriteLine($"Portfolio UUID: {portfolio.PortfolioUuid}");
+          Console.WriteLine($"Portfolio Name: {portfolio.Name}");
+          Console.WriteLine();
+        }
+      }
+      catch (CoinbaseException e)
+      {
+        Console.WriteLine($"Error: {e.StackTrace}");
+        Console.WriteLine($"Error: {e.ToString()}");
+        return;
+      }
     }
   }
 }
