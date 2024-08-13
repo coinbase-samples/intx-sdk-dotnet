@@ -20,8 +20,8 @@ namespace CoinbaseSdk.IntxExample.Example
   using CoinbaseSdk.Core.Credentials;
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Intx.Client;
+  using CoinbaseSdk.Intx.Instruments;
   using CoinbaseSdk.Intx.Portfolios;
-  using CoinbaseSdk.Intx.Transfers;
 
   class Example
   {
@@ -46,6 +46,19 @@ namespace CoinbaseSdk.IntxExample.Example
           Console.WriteLine($"Portfolio ID: {portfolio.PortfolioId}");
           Console.WriteLine($"Portfolio UUID: {portfolio.PortfolioUuid}");
           Console.WriteLine($"Portfolio Name: {portfolio.Name}");
+          Console.WriteLine();
+        }
+
+        var instrumentsService = new InstrumentsService(client);
+        var historicalFundingRates = instrumentsService.GetHistoricalFundingRates(new GetHistoricalFundingRatesRequest
+        {
+          Instrument = "BTC-PERP",
+        });
+
+        foreach (HistoricalFundingRate fundingRate in historicalFundingRates.Results)
+        {
+          Console.WriteLine($"Funding Rate: {fundingRate.FundingRate}");
+          Console.WriteLine($"Event Time: {fundingRate.EventTime}");
           Console.WriteLine();
         }
 

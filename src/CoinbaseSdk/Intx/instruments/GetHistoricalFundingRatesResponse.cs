@@ -19,6 +19,6 @@ namespace CoinbaseSdk.Intx.Instruments
 {
   public class GetHistoricalFundingRatesResponse
   {
-    public HistoricalFundingRate[] FundingRates { get; set; } = [];
+    public HistoricalFundingRate[] Results { get; set; } = [];
   }
 }

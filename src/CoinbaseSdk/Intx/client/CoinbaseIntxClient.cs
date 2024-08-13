@@ -42,7 +42,7 @@ namespace CoinbaseSdk.Intx.Client
       CancellationToken cancellationToken,
       CallOptions? callOptions = null)
     {
-      CoinbaseHttpRequest request = new CoinbaseHttpRequest(
+      IntxHttpRequest request = new IntxHttpRequest(
         $"{this.ApiBasePath}{path}",
         method.Method,
         this.Credentials,

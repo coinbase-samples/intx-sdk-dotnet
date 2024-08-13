@@ -344,25 +344,31 @@ namespace CoinbaseSdk.Intx.Portfolios
 
     public ListPortfoliosResponse ListPortfolios(CallOptions? options = null)
     {
-      return this.Request<ListPortfoliosResponse>(
+      return new ListPortfoliosResponse()
+      {
+        Portfolios = this.Request<Portfolio[]>(
         HttpMethod.Get,
         "/portfolios",
         [HttpStatusCode.OK],
         null,
-        options);
+        options)
+      };
     }
 
-    public Task<ListPortfoliosResponse> ListPortfoliosAsync(
+    public async Task<ListPortfoliosResponse> ListPortfoliosAsync(
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListPortfoliosResponse>(
+      return new ListPortfoliosResponse()
+      {
+        Portfolios = await this.RequestAsync<Portfolio[]>(
         HttpMethod.Get,
         "/portfolios",
         [HttpStatusCode.OK],
         null,
         options,
-        cancellationToken);
+        cancellationToken)
+      };
     }
 
     public PatchPortfolioResponse PatchPortfolio(

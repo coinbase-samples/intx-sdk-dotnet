@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="../Intx/Coinbase.INTX.csproj" />
+    <ProjectReference Include="../Intx/CoinbaseSdk.INTX.csproj" />
   </ItemGroup>
 
   <ItemGroup>

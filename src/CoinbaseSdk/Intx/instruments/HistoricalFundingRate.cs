@@ -32,9 +32,6 @@ namespace CoinbaseSdk.Intx.Instruments
     [JsonPropertyName("event_time")]
     public DateTimeOffset? EventTime { get; set; }
 
-    [JsonPropertyName("pagination")]
-    public Pagination? Pagination { get; set; }
-
     public HistoricalFundingRate() { }
 
     public class HistoricalFundingRateBuilder
@@ -83,7 +80,6 @@ namespace CoinbaseSdk.Intx.Instruments
           FundingRate = this._fundingRate,
           MarkPrice = this._markPrice,
           EventTime = this._eventTime,
-          Pagination = this._pagination
         };
       }
     }

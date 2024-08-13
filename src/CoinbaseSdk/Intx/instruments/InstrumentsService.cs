@@ -80,7 +80,7 @@ namespace CoinbaseSdk.Intx.Instruments
       GetHistoricalFundingRatesRequest request,
       CallOptions? options = null)
     {
-      return this.Request<HistoricalFundingRate[]>(
+      return this.Request<GetHistoricalFundingRatesResponse>(
         HttpMethod.Get,
         $"/instruments/{request.Instrument}/funding",
         [HttpStatusCode.OK],
@@ -102,79 +102,97 @@ namespace CoinbaseSdk.Intx.Instruments
         cancellationToken);
     }
 
-    public GetInstrumentQuoteResponse GetInstrumentQuote(
+    public GetInstrumentQuoteResponse GetQuotePerInstrument(
       GetInstrumentQuoteRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetInstrumentQuoteResponse>(
+      return new GetInstrumentQuoteResponse()
+      {
+        Quote = this.Request<Quote>(
         HttpMethod.Get,
         $"/instruments/{request.Instrument}/quote",
         [HttpStatusCode.OK],
         null,
-        options);
+        options)
+      };
     }
 
-    public Task<GetInstrumentQuoteResponse> GetInstrumentQuoteAsync(
+    public async Task<GetInstrumentQuoteResponse> GetQuotePerInstrumentAsync(
       GetInstrumentQuoteRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetInstrumentQuoteResponse>(
+      return new GetInstrumentQuoteResponse()
+      {
+        Quote = await this.RequestAsync<Quote>(
         HttpMethod.Get,
         $"/instruments/{request.Instrument}/quote",
         [HttpStatusCode.OK],
         null,
         options,
-        cancellationToken);
+        cancellationToken)
+      };
     }
 
     public GetInstrumentResponse GetInstrument(
       GetInstrumentRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetInstrumentResponse>(
+      return new GetInstrumentResponse()
+      {
+        Instrument = this.Request<Instrument>(
         HttpMethod.Get,
         $"/instruments/{request.Instrument}",
         [HttpStatusCode.OK],
         null,
-        options);
+        options)
+      };
     }
 
-    public Task<GetInstrumentResponse> GetInstrumentAsync(
+    public async Task<GetInstrumentResponse> GetInstrumentAsync(
       GetInstrumentRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetInstrumentResponse>(
+      return new GetInstrumentResponse()
+      {
+        Instrument = await this.RequestAsync<Instrument>(
         HttpMethod.Get,
         $"/instruments/{request.Instrument}",
         [HttpStatusCode.OK],
         null,
         options,
-        cancellationToken);
+        cancellationToken)
+      };
     }
 
     public ListInstrumentsResponse ListInstruments(CallOptions? options = null)
     {
-      return this.Request<ListInstrumentsResponse>(
+      return new ListInstrumentsResponse()
+      {
+        Instruments = this.Request<Instrument[]>(
         HttpMethod.Get,
         "/instruments",
         [HttpStatusCode.OK],
         null,
-        options);
+        options)
+      };
     }
 
-    public Task<ListInstrumentsResponse> ListInstrumentsAsync(
+    public async Task<ListInstrumentsResponse> ListInstrumentsAsync(
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListInstrumentsResponse>(
+      return new ListInstrumentsResponse()
+      {
+        Instruments = await this.RequestAsync<Instrument[]>(
         HttpMethod.Get,
         "/instruments",
         [HttpStatusCode.OK],
         null,
         options,
-        cancellationToken);
+        cancellationToken)
+      };
     }
   }
 }
