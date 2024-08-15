@@ -21,7 +21,7 @@ namespace CoinbaseSdk.Intx.Assets
   public class Asset
   {
     [JsonPropertyName("asset_id")]
-    public long? AssetId { get; set; }
+    public string? AssetId { get; set; }
 
     [JsonPropertyName("asset_uuid")]
     public string? AssetUuid { get; set; }
