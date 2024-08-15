@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-namespace CoinbaseSdk.Intx.Transfers
+namespace CoinbaseSdk.Intx.model
 {
-  public enum TransferStatus
+  public enum EventType
   {
-    PROCESSED,
     NEW,
-    FAILED,
-    STARTED
+    TRADE,
+    REPLACED,
   }
 }

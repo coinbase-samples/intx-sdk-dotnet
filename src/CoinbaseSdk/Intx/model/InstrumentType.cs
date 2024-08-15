@@ -14,13 +14,11 @@
  * limitations under the License.
  */
 
-namespace CoinbaseSdk.Intx.Orders
+namespace CoinbaseSdk.Intx.model
 {
-  public enum OrderType
+  public enum InstrumentType
   {
-    LIMIT,
-    MARKET,
-    STOP,
-    STOP_LIMIT,
+    SPOT,
+    PERPETUAL_FUTURE,
   }
 }

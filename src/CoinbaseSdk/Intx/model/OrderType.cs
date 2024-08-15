@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
-namespace CoinbaseSdk.Intx.Orders
+namespace CoinbaseSdk.Intx.model
 {
-  public enum OrderSide
+  public enum OrderType
   {
-    Buy,
-    Sell,
+    LIMIT,
+    MARKET,
+    STOP,
+    STOP_LIMIT,
   }
 }

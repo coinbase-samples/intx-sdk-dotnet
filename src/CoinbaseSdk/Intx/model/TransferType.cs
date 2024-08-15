@@ -14,11 +14,15 @@
  * limitations under the License.
  */
 
-namespace CoinbaseSdk.Intx.Orders
+namespace CoinbaseSdk.Intx.model
 {
-  public enum InstrumentType
+  public enum TransferType
   {
-    SPOT,
-    PERPETUAL_FUTURE,
+    DEPOSIT,
+    WITHDRAW,
+    STIPEND,
+    INTERNAL,
+    FUNDING,
+    ALL
   }
 }

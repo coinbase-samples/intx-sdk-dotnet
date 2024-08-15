@@ -14,15 +14,11 @@
  * limitations under the License.
  */
 
-namespace CoinbaseSdk.Intx.Transfers
+namespace CoinbaseSdk.Intx.model
 {
-  public enum TransferType
+  public enum OrderSide
   {
-    DEPOSIT,
-    WITHDRAW,
-    STIPEND,
-    INTERNAL,
-    FUNDING,
-    ALL
+    Buy,
+    Sell,
   }
 }
