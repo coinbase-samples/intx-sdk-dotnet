@@ -521,11 +521,11 @@ namespace CoinbaseSdk.Intx.Portfolios
     {
       return this.RequestAsync<TransferPositionsResponse>(
         HttpMethod.Post,
-          $"/portfolios/transfer-position",
-          [HttpStatusCode.OK],
-          request,
-          options,
-          cancellationToken);
+        $"/portfolios/transfer-position",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
     }
 
     public UpdatePortfolioResponse UpdatePortfolio(

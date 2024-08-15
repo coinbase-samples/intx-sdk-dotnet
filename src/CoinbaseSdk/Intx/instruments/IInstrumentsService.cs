@@ -52,7 +52,7 @@ namespace CoinbaseSdk.Intx.Instruments
       GetInstrumentQuoteRequest request,
       CallOptions? options = null);
 
-    public  Task<GetInstrumentQuoteResponse> GetQuotePerInstrumentAsync(
+    public Task<GetInstrumentQuoteResponse> GetQuotePerInstrumentAsync(
       GetInstrumentQuoteRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
@@ -61,14 +61,14 @@ namespace CoinbaseSdk.Intx.Instruments
       GetInstrumentRequest request,
       CallOptions? options = null);
 
-    public  Task<GetInstrumentResponse> GetInstrumentAsync(
+    public Task<GetInstrumentResponse> GetInstrumentAsync(
       GetInstrumentRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
     public ListInstrumentsResponse ListInstruments(CallOptions? options = null);
 
-    public  Task<ListInstrumentsResponse> ListInstrumentsAsync(
+    public Task<ListInstrumentsResponse> ListInstrumentsAsync(
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
   }

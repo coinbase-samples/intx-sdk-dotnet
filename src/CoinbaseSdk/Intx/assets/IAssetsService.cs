@@ -24,7 +24,7 @@ namespace CoinbaseSdk.Intx.Assets
       GetAssetRequest request,
       CallOptions? options = null);
 
-    public  Task<GetAssetResponse> GetAssetAsync(
+    public Task<GetAssetResponse> GetAssetAsync(
       GetAssetRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
@@ -32,7 +32,7 @@ namespace CoinbaseSdk.Intx.Assets
     public ListAssetsResponse ListAssets(
       CallOptions? options = null);
 
-    public  Task<ListAssetsResponse> ListAssetsAsync(
+    public Task<ListAssetsResponse> ListAssetsAsync(
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
@@ -40,7 +40,7 @@ namespace CoinbaseSdk.Intx.Assets
       GetSupportedNetworksRequest request,
       CallOptions? options = null);
 
-    public  Task<GetSupportedNetworksResponse> GetSupportedNetworksAsync(
+    public Task<GetSupportedNetworksResponse> GetSupportedNetworksAsync(
       GetSupportedNetworksRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
