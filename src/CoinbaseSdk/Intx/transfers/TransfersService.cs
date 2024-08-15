@@ -21,84 +21,102 @@ namespace CoinbaseSdk.Intx.Transfers
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
 
-  public class TransfersService(ICoinbaseClient client) : CoinbaseService(client)
+  public class TransfersService(ICoinbaseClient client) : CoinbaseService(client), ITransfersService
   {
     public CreateCounterpartyIdResponse CreateCounterpartyId(
       CreateCounterpartyIdRequest request,
       CallOptions? options = null)
     {
-      return this.Request<CreateCounterpartyIdResponse>(
-        HttpMethod.Post,
-        $"/transfers/create-counterparty-id",
-        [HttpStatusCode.Created, HttpStatusCode.OK],
-        request,
-        options);
+      return new CreateCounterpartyIdResponse()
+      {
+        Counterparty = this.Request<Counterparty>(
+          HttpMethod.Post,
+          $"/transfers/create-counterparty-id",
+          [HttpStatusCode.Created, HttpStatusCode.OK],
+          request,
+          options)
+      };
     }
 
-    public Task<CreateCounterpartyIdResponse> CreateCounterpartyIdAsync(
+    public async Task<CreateCounterpartyIdResponse> CreateCounterpartyIdAsync(
       CreateCounterpartyIdRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<CreateCounterpartyIdResponse>(
-        HttpMethod.Post,
-        $"/transfers/create-counterparty-id",
-        [HttpStatusCode.Created, HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
+      return new CreateCounterpartyIdResponse()
+      {
+        Counterparty = await this.RequestAsync<Counterparty>(
+          HttpMethod.Post,
+          $"/transfers/create-counterparty-id",
+          [HttpStatusCode.Created, HttpStatusCode.OK],
+          request,
+          options,
+          cancellationToken)
+      };
     }
 
     public CreateCryptoAddressResponse CreateCryptoAddress(
       CreateCryptoAddressRequest request,
       CallOptions? options = null)
     {
-      return this.Request<CreateCryptoAddressResponse>(
-        HttpMethod.Post,
-        $"/transfers/address",
-        [HttpStatusCode.Created, HttpStatusCode.OK],
-        request,
-        options);
+      return new CreateCryptoAddressResponse()
+      {
+        CryptoAddress = this.Request<CryptoAddress>(
+          HttpMethod.Post,
+          $"/transfers/address",
+          [HttpStatusCode.Created, HttpStatusCode.OK],
+          request,
+          options)
+      };
     }
 
-    public Task<CreateCryptoAddressResponse> CreateCryptoAddressAsync(
+    public async Task<CreateCryptoAddressResponse> CreateCryptoAddressAsync(
       CreateCryptoAddressRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<CreateCryptoAddressResponse>(
-        HttpMethod.Post,
-        $"/transfers/address",
-        [HttpStatusCode.Created, HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
+      return new CreateCryptoAddressResponse()
+      {
+        CryptoAddress = await this.RequestAsync<CryptoAddress>(
+          HttpMethod.Post,
+          $"/transfers/address",
+          [HttpStatusCode.Created, HttpStatusCode.OK],
+          request,
+          options,
+          cancellationToken)
+      };
     }
 
     public GetTransferResponse GetTransfer(
       GetTransferRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetTransferResponse>(
-        HttpMethod.Get,
-        $"transfers/{request.TransferUUID}",
-        [HttpStatusCode.OK],
-        null,
-        options);
+      return new GetTransferResponse()
+      {
+        Transfer = this.Request<Transfer>(
+          HttpMethod.Get,
+          $"transfers/{request.TransferUUID}",
+          [HttpStatusCode.OK],
+          null,
+          options)
+      };
     }
 
-    public Task<GetTransferResponse> GetTransferAsync(
+    public async Task<GetTransferResponse> GetTransferAsync(
       GetTransferRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetTransferResponse>(
-        HttpMethod.Get,
-        $"transfers/{request.TransferUUID}",
-        [HttpStatusCode.OK],
-        null,
-        options,
-        cancellationToken);
+      return new GetTransferResponse()
+      {
+        Transfer = await this.RequestAsync<Transfer>(
+          HttpMethod.Get,
+          $"transfers/{request.TransferUUID}",
+          [HttpStatusCode.OK],
+          null,
+          options,
+          cancellationToken)
+      };
     }
 
     public ListTransfersResponse ListMatchingTransfers(
