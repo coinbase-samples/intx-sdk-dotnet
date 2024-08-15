@@ -17,12 +17,8 @@
 
 namespace CoinbaseSdk.Intx.Instruments
 {
-  using CoinbaseSdk.Intx.Common;
-
   public class GetDailyTradingVolumesResponse
   {
-    public Pagination? Pagination { get; set; }
-
-    public InstrumentDailyTradingVolumes.Result[]? Results { get; set; } = [];
+    public InstrumentDailyTradingVolumes.Result[] Results { get; set; } = [];
   }
 }

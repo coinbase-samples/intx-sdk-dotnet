@@ -21,136 +21,166 @@ namespace CoinbaseSdk.Intx.Orders
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
 
-  public class OrdersService(ICoinbaseClient client) : CoinbaseService(client)
+  public class OrdersService(ICoinbaseClient client) : CoinbaseService(client), IOrdersService
   {
     public CancelOrderResponse CancelOrder(
       CancelOrderRequest request,
       CallOptions? options = null)
     {
-      return this.Request<CancelOrderResponse>(
-        HttpMethod.Delete,
-        $"/orders/{request.Id}",
-        [HttpStatusCode.OK],
-        request,
-        options);
+      return new CancelOrderResponse()
+      {
+        Order = this.Request<Order>(
+          HttpMethod.Delete,
+          $"/orders/{request.Id}",
+          [HttpStatusCode.OK],
+          request,
+          options)
+      };
     }
 
-    public Task<CancelOrderResponse> CancelOrderAsync(
+    public async Task<CancelOrderResponse> CancelOrderAsync(
       CancelOrderRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<CancelOrderResponse>(
-        HttpMethod.Delete,
-        $"/orders/{request.Id}",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
+      return new CancelOrderResponse()
+      {
+        Order = await this.RequestAsync<Order>(
+          HttpMethod.Delete,
+          $"/orders/{request.Id}",
+          [HttpStatusCode.OK],
+          request,
+          options,
+          cancellationToken)
+      };
     }
 
     public CancelOrdersResponse CancelOrders(
       CancelOrderRequest request,
       CallOptions? options = null)
     {
-      return this.Request<CancelOrdersResponse>(
-        HttpMethod.Delete,
-        "/orders",
-        [HttpStatusCode.OK],
-        request,
-        options);
+      return new CancelOrdersResponse()
+      {
+        Results = this.Request<Order[]>(
+          HttpMethod.Delete,
+          "/orders",
+          [HttpStatusCode.OK],
+          request,
+          options)
+      };
     }
 
-    public Task<CancelOrdersResponse> CancelOrdersAsync(
+    public async Task<CancelOrdersResponse> CancelOrdersAsync(
       CancelOrderRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<CancelOrdersResponse>(
-        HttpMethod.Delete,
-        "/orders",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
+      return new CancelOrdersResponse()
+      {
+        Results = await this.RequestAsync<Order[]>(
+          HttpMethod.Delete,
+          "/orders",
+          [HttpStatusCode.OK],
+          request,
+          options,
+          cancellationToken)
+      };
     }
 
     public CreateOrderResponse CreateOrder(
       CreateOrderRequest request,
       CallOptions? options = null)
     {
-      return this.Request<CreateOrderResponse>(
-        HttpMethod.Post,
-        "/orders",
-        [HttpStatusCode.OK],
-        request,
-        options);
+      return new CreateOrderResponse()
+      {
+        Order = this.Request<Order>(
+          HttpMethod.Post,
+          "/orders",
+          [HttpStatusCode.OK],
+          request,
+          options)
+      };
     }
 
-    public Task<CreateOrderResponse> CreateOrderAsync(
+    public async Task<CreateOrderResponse> CreateOrderAsync(
       CreateOrderRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<CreateOrderResponse>(
-        HttpMethod.Post,
-        "/orders",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
+      return new CreateOrderResponse()
+      {
+        Order = await this.RequestAsync<Order>(
+          HttpMethod.Post,
+          "/orders",
+          [HttpStatusCode.OK],
+          request,
+          options,
+          cancellationToken)
+      };
     }
 
     public GetOrderResponse GetOrder(
       GetOrderRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetOrderResponse>(
-        HttpMethod.Get,
-        $"/orders/{request.Id}",
-        [HttpStatusCode.OK],
-        request,
-        options);
+      return new GetOrderResponse()
+      {
+        Order = this.Request<Order>(
+          HttpMethod.Get,
+          $"/orders/{request.Id}",
+          [HttpStatusCode.OK],
+          request,
+          options)
+      };
     }
 
-    public Task<GetOrderResponse> GetOrderAsync(
+    public async Task<GetOrderResponse> GetOrderAsync(
       GetOrderRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetOrderResponse>(
-        HttpMethod.Get,
-        $"/orders/{request.Id}",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
+      return new GetOrderResponse()
+      {
+        Order = await this.RequestAsync<Order>(
+          HttpMethod.Get,
+          $"/orders/{request.Id}",
+          [HttpStatusCode.OK],
+          request,
+          options,
+          cancellationToken)
+      };
     }
 
     public ModifyOrderResponse ModifyOpenOrder(
       ModifyOrderRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ModifyOrderResponse>(
+      return new ModifyOrderResponse()
+      {
+        Order = this.Request<Order>(
         HttpMethod.Put,
         $"/orders/{request.Id}",
         [HttpStatusCode.OK],
         request,
-        options);
+        options)
+      };
     }
 
-    public Task<ModifyOrderResponse> ModifyOpenOrderAsync(
+    public async Task<ModifyOrderResponse> ModifyOpenOrderAsync(
       ModifyOrderRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ModifyOrderResponse>(
+      return new ModifyOrderResponse()
+      {
+        Order = await this.RequestAsync<Order>(
         HttpMethod.Put,
         $"/orders/{request.Id}",
         [HttpStatusCode.OK],
         request,
         options,
-        cancellationToken);
+        cancellationToken)
+      };
     }
 
     public ListOrdersResponse ListOpenOrders(

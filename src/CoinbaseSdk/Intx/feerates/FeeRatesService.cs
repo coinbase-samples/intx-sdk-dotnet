@@ -24,25 +24,31 @@ namespace CoinbaseSdk.Intx.FeeRates
   {
     public ListFeeRateTiersResponse ListFeeRateTiers(CallOptions? options = null)
     {
-      return this.Request<ListFeeRateTiersResponse>(
-        HttpMethod.Get,
-        $"/fee-rate-tiers",
-        [HttpStatusCode.OK],
-        null,
-        options);
+      return new ListFeeRateTiersResponse()
+      {
+        Results = this.Request<FeeRate[]>(
+          HttpMethod.Get,
+          $"/fee-rate-tiers",
+          [HttpStatusCode.OK],
+          null,
+          options)
+      };
     }
 
-    public Task<ListFeeRateTiersResponse> ListFeeRateTiersAsync(
+    public async Task<ListFeeRateTiersResponse> ListFeeRateTiersAsync(
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListFeeRateTiersResponse>(
+      return new ListFeeRateTiersResponse()
+      {
+        Results = await this.RequestAsync<FeeRate[]>(
         HttpMethod.Get,
         $"/fee-rate-tiers",
         [HttpStatusCode.OK],
         null,
         options,
-        cancellationToken);
+        cancellationToken)
+      };
     }
   }
 }

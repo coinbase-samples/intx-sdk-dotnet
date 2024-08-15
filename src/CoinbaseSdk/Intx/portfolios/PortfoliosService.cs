@@ -21,110 +21,134 @@ namespace CoinbaseSdk.Intx.Portfolios
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
 
-  public class PortfoliosService(ICoinbaseClient client) : CoinbaseService(client)
+  public class PortfoliosService(ICoinbaseClient client) : CoinbaseService(client), IPortfoliosService
   {
     public CreatePortfolioResponse CreatePortfolio(
       CreatePortfolioRequest request,
       CallOptions? options = null)
     {
-      return this.Request<CreatePortfolioResponse>(
-        HttpMethod.Post,
-        "/portfolios",
-        [HttpStatusCode.Created, HttpStatusCode.OK],
-        request,
-        options);
+      return new CreatePortfolioResponse()
+      {
+        Portfolio = this.Request<Portfolio>(
+          HttpMethod.Post,
+          "/portfolios",
+          [HttpStatusCode.Created, HttpStatusCode.OK],
+          request,
+          options)
+      };
     }
 
-    public Task<CreatePortfolioResponse> CreatePortfolioAsync(
+    public async Task<CreatePortfolioResponse> CreatePortfolioAsync(
       CreatePortfolioRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<CreatePortfolioResponse>(
-        HttpMethod.Post,
-        "/portfolios",
-        [HttpStatusCode.Created, HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
+      return new CreatePortfolioResponse()
+      {
+        Portfolio = await this.RequestAsync<Portfolio>(
+          HttpMethod.Post,
+          "/portfolios",
+          [HttpStatusCode.Created, HttpStatusCode.OK],
+          request,
+          options,
+          cancellationToken)
+      };
     }
 
     public EnableDisableAutoMarginResponse EnableDisableAutoMarginMode(
       EnableDisableAutoMarginRequest request,
       CallOptions? options = null)
     {
-      return this.Request<EnableDisableAutoMarginResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.Portfolio}/auto-margin-enabled",
-        [HttpStatusCode.OK],
-        request,
-        options);
+      return new EnableDisableAutoMarginResponse()
+      {
+        Portfolio = this.Request<Portfolio>(
+          HttpMethod.Post,
+          $"/portfolios/{request.Portfolio}/auto-margin-enabled",
+          [HttpStatusCode.OK],
+          request,
+          options)
+      };
     }
 
-    public Task<EnableDisableAutoMarginResponse> EnableDisableAutoMarginModeAsync(
+    public async Task<EnableDisableAutoMarginResponse> EnableDisableAutoMarginModeAsync(
       EnableDisableAutoMarginRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<EnableDisableAutoMarginResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.Portfolio}/auto-margin-enabled",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
+      return new EnableDisableAutoMarginResponse()
+      {
+        Portfolio = await this.RequestAsync<Portfolio>(
+          HttpMethod.Post,
+          $"/portfolios/{request.Portfolio}/auto-margin-enabled",
+          [HttpStatusCode.OK],
+          request,
+          options,
+          cancellationToken)
+      };
     }
 
     public EnableDisableCrossCollateralResponse EnableDisablePortfolioCrossCollateral(
       EnableDisableCrossCollateralRequest request,
       CallOptions? options = null)
     {
-      return this.Request<EnableDisableCrossCollateralResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.Portfolio}/cross-collateral-enabled",
-        [HttpStatusCode.OK],
-        request,
-        options);
+      return new EnableDisableCrossCollateralResponse()
+      {
+        Portfolio = this.Request<Portfolio>(
+          HttpMethod.Post,
+          $"/portfolios/{request.Portfolio}/cross-collateral-enabled",
+          [HttpStatusCode.OK],
+          request,
+          options)
+      };
     }
 
-    public Task<EnableDisableCrossCollateralResponse> EnableDisablePortfolioCrossCollateralAsync(
+    public async Task<EnableDisableCrossCollateralResponse> EnableDisablePortfolioCrossCollateralAsync(
       EnableDisableCrossCollateralRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<EnableDisableCrossCollateralResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.Portfolio}/cross-collateral-enabled",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
+      return new EnableDisableCrossCollateralResponse()
+      {
+        Portfolio = await this.RequestAsync<Portfolio>(
+          HttpMethod.Post,
+          $"/portfolios/{request.Portfolio}/cross-collateral-enabled",
+          [HttpStatusCode.OK],
+          request,
+          options,
+          cancellationToken)
+      };
     }
 
     public GetBalanceForPortfolioAssetResponse GetBalanceForPortfolioAsset(
       GetBalanceForPortfolioAssetRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetBalanceForPortfolioAssetResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.Portfolio}/balances/{request.Asset}",
-        [HttpStatusCode.OK],
-        null,
-        options);
+      return new GetBalanceForPortfolioAssetResponse()
+      {
+        Balance = this.Request<Balance>(
+          HttpMethod.Get,
+          $"/portfolios/{request.Portfolio}/balances/{request.Asset}",
+          [HttpStatusCode.OK],
+          null,
+          options)
+      };
     }
 
-    public Task<GetBalanceForPortfolioAssetResponse> GetBalanceForPortfolioAssetAsync(
+    public async Task<GetBalanceForPortfolioAssetResponse> GetBalanceForPortfolioAssetAsync(
       GetBalanceForPortfolioAssetRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetBalanceForPortfolioAssetResponse>(
+      return new GetBalanceForPortfolioAssetResponse()
+      {
+        Balance = await this.RequestAsync<Balance>(
         HttpMethod.Get,
         $"/portfolios/{request.Portfolio}/balances/{request.Asset}",
         [HttpStatusCode.OK],
         null,
         options,
-        cancellationToken);
+        cancellationToken)
+      };
     }
 
     public GetPortfolioDetailsResponse GetPortfolioDetails(
@@ -157,78 +181,96 @@ namespace CoinbaseSdk.Intx.Portfolios
       GetPortfolioRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetPortfolioResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}",
-        [HttpStatusCode.OK],
-        null,
-        options);
+      return new GetPortfolioResponse()
+      {
+        Portfolio = this.Request<Portfolio>(
+          HttpMethod.Get,
+          $"/portfolios/{request.PortfolioId}",
+          [HttpStatusCode.OK],
+          null,
+          options)
+      };
     }
 
-    public Task<GetPortfolioResponse> GetPortfolioAsync(
+    public async Task<GetPortfolioResponse> GetPortfolioAsync(
       GetPortfolioRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetPortfolioResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}",
-        [HttpStatusCode.OK],
-        null,
-        options,
-        cancellationToken);
+      return new GetPortfolioResponse()
+      {
+        Portfolio = await this.RequestAsync<Portfolio>(
+          HttpMethod.Get,
+          $"/portfolios/{request.PortfolioId}",
+          [HttpStatusCode.OK],
+          null,
+          options,
+          cancellationToken)
+      };
     }
 
     public GetPortfolioSummaryResponse GetPortfolioSummary(
       GetPortfolioSummaryRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetPortfolioSummaryResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.Portfolio}/summary",
-        [HttpStatusCode.OK],
-        null,
-        options);
+      return new GetPortfolioSummaryResponse()
+      {
+        Summary = this.Request<Summary>(
+          HttpMethod.Get,
+          $"/portfolios/{request.Portfolio}/summary",
+          [HttpStatusCode.OK],
+          null,
+          options)
+      };
     }
 
-    public Task<GetPortfolioSummaryResponse> GetPortfolioSummaryAsync(
+    public async Task<GetPortfolioSummaryResponse> GetPortfolioSummaryAsync(
       GetPortfolioSummaryRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetPortfolioSummaryResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.Portfolio}/summary",
-        [HttpStatusCode.OK],
-        null,
-        options,
-        cancellationToken);
+      return new GetPortfolioSummaryResponse()
+      {
+        Summary = await this.RequestAsync<Summary>(
+          HttpMethod.Get,
+          $"/portfolios/{request.Portfolio}/summary",
+          [HttpStatusCode.OK],
+          null,
+          options,
+          cancellationToken)
+      };
     }
 
     public GetPositionForPortfolioInstrumentResponse GetPositionForPortfolioInstrument(
       GetPositionForPortfolioInstrumentRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetPositionForPortfolioInstrumentResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.Portfolio}/positions/{request.Instrument}",
-        [HttpStatusCode.OK],
-        null,
-        options);
+      return new GetPositionForPortfolioInstrumentResponse()
+      {
+        Position = this.Request<Position>(
+          HttpMethod.Get,
+          $"/portfolios/{request.Portfolio}/positions/{request.Instrument}",
+          [HttpStatusCode.OK],
+          null,
+          options)
+      };
     }
 
-    public Task<GetPositionForPortfolioInstrumentResponse> GetPositionForPortfolioInstrumentAsync(
+    public async Task<GetPositionForPortfolioInstrumentResponse> GetPositionForPortfolioInstrumentAsync(
       GetPositionForPortfolioInstrumentRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetPositionForPortfolioInstrumentResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.Portfolio}/positions/{request.Instrument}",
-        [HttpStatusCode.OK],
-        null,
-        options,
-        cancellationToken);
+      return new GetPositionForPortfolioInstrumentResponse()
+      {
+        Position = await this.RequestAsync<Position>(
+          HttpMethod.Get,
+          $"/portfolios/{request.Portfolio}/positions/{request.Instrument}",
+          [HttpStatusCode.OK],
+          null,
+          options,
+          cancellationToken)
+      };
     }
 
     public ListFillsByPortfoliosResponse ListFillsByPortfolios(
@@ -261,26 +303,32 @@ namespace CoinbaseSdk.Intx.Portfolios
       ListPortfolioBalancesRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListPortfolioBalancesResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.Portfolio}/balances",
-        [HttpStatusCode.OK],
-        null,
-        options);
+      return new ListPortfolioBalancesResponse()
+      {
+        PortfolioBalances = this.Request<Balance[]>(
+          HttpMethod.Get,
+          $"/portfolios/{request.Portfolio}/balances",
+          [HttpStatusCode.OK],
+          null,
+          options)
+      };
     }
 
-    public Task<ListPortfolioBalancesResponse> ListPortfolioBalancesAsync(
+    public async Task<ListPortfolioBalancesResponse> ListPortfolioBalancesAsync(
       ListPortfolioBalancesRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListPortfolioBalancesResponse>(
+      return new ListPortfolioBalancesResponse()
+      {
+        PortfolioBalances = await this.RequestAsync<Balance[]>(
         HttpMethod.Get,
         $"/portfolios/{request.Portfolio}/balances",
         [HttpStatusCode.OK],
         null,
         options,
-        cancellationToken);
+        cancellationToken)
+      };
     }
 
     public ListPortfolioFillsResponse ListPortfolios(
@@ -313,26 +361,32 @@ namespace CoinbaseSdk.Intx.Portfolios
       ListPortfolioPositionsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListPortfolioPositionsResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.Portfolio}/positions",
-        [HttpStatusCode.OK],
-        null,
-        options);
+      return new ListPortfolioPositionsResponse()
+      {
+        Positions = this.Request<Position[]>(
+          HttpMethod.Get,
+          $"/portfolios/{request.Portfolio}/positions",
+          [HttpStatusCode.OK],
+          null,
+          options)
+      };
     }
 
-    public Task<ListPortfolioPositionsResponse> ListPortfolioPositionsAsync(
+    public async Task<ListPortfolioPositionsResponse> ListPortfolioPositionsAsync(
       ListPortfolioPositionsRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListPortfolioPositionsResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.Portfolio}/positions",
-        [HttpStatusCode.OK],
-        null,
-        options,
-        cancellationToken);
+      return new ListPortfolioPositionsResponse()
+      {
+        Positions = await this.RequestAsync<Position[]>(
+          HttpMethod.Get,
+          $"/portfolios/{request.Portfolio}/positions",
+          [HttpStatusCode.OK],
+          null,
+          options,
+          cancellationToken)
+      };
     }
 
     public ListPortfoliosResponse ListPortfolios(CallOptions? options = null)
@@ -340,11 +394,11 @@ namespace CoinbaseSdk.Intx.Portfolios
       return new ListPortfoliosResponse()
       {
         Portfolios = this.Request<Portfolio[]>(
-        HttpMethod.Get,
-        "/portfolios",
-        [HttpStatusCode.OK],
-        null,
-        options)
+          HttpMethod.Get,
+          "/portfolios",
+          [HttpStatusCode.OK],
+          null,
+          options)
       };
     }
 
@@ -355,12 +409,12 @@ namespace CoinbaseSdk.Intx.Portfolios
       return new ListPortfoliosResponse()
       {
         Portfolios = await this.RequestAsync<Portfolio[]>(
-        HttpMethod.Get,
-        "/portfolios",
-        [HttpStatusCode.OK],
-        null,
-        options,
-        cancellationToken)
+          HttpMethod.Get,
+          "/portfolios",
+          [HttpStatusCode.OK],
+          null,
+          options,
+          cancellationToken)
       };
     }
 
@@ -368,26 +422,32 @@ namespace CoinbaseSdk.Intx.Portfolios
       PatchPortfolioRequest request,
       CallOptions? options = null)
     {
-      return this.Request<PatchPortfolioResponse>(
-        HttpMethod.Patch,
-        $"/portfolios/{request.Portfolio}",
-        [HttpStatusCode.OK],
-        request,
-        options);
+      return new PatchPortfolioResponse()
+      {
+        Portfolio = this.Request<Portfolio>(
+          HttpMethod.Patch,
+          $"/portfolios/{request.Portfolio}",
+          [HttpStatusCode.OK],
+          request,
+          options)
+      };
     }
 
-    public Task<PatchPortfolioResponse> PatchPortfolioAsync(
+    public async Task<PatchPortfolioResponse> PatchPortfolioAsync(
       PatchPortfolioRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<PatchPortfolioResponse>(
-        HttpMethod.Patch,
-        $"/portfolios/{request.Portfolio}",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
+      return new PatchPortfolioResponse()
+      {
+        Portfolio = await this.RequestAsync<Portfolio>(
+          HttpMethod.Patch,
+          $"/portfolios/{request.Portfolio}",
+          [HttpStatusCode.OK],
+          request,
+          options,
+          cancellationToken)
+      };
     }
 
     public SetPortfolioMarginOverrideResponse SetPortfolioMarginOverride(
@@ -461,37 +521,43 @@ namespace CoinbaseSdk.Intx.Portfolios
     {
       return this.RequestAsync<TransferPositionsResponse>(
         HttpMethod.Post,
-        $"/portfolios/transfer-position",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
+          $"/portfolios/transfer-position",
+          [HttpStatusCode.OK],
+          request,
+          options,
+          cancellationToken);
     }
 
     public UpdatePortfolioResponse UpdatePortfolio(
       UpdatePortfolioRequest request,
       CallOptions? options = null)
     {
-      return this.Request<UpdatePortfolioResponse>(
-        HttpMethod.Put,
-        $"/portfolios/{request.Portfolio}",
-        [HttpStatusCode.OK],
-        request,
-        options);
+      return new UpdatePortfolioResponse()
+      {
+        Portfolio = this.Request<Portfolio>(
+          HttpMethod.Put,
+          $"/portfolios/{request.Portfolio}",
+          [HttpStatusCode.OK],
+          request,
+          options)
+      };
     }
 
-    public Task<UpdatePortfolioResponse> UpdatePortfolioAsync(
+    public async Task<UpdatePortfolioResponse> UpdatePortfolioAsync(
       UpdatePortfolioRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<UpdatePortfolioResponse>(
-        HttpMethod.Put,
-        $"/portfolios/{request.Portfolio}",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
+      return new UpdatePortfolioResponse()
+      {
+        Portfolio = await this.RequestAsync<Portfolio>(
+          HttpMethod.Put,
+          $"/portfolios/{request.Portfolio}",
+          [HttpStatusCode.OK],
+          request,
+          options,
+          cancellationToken)
+      };
     }
   }
 }

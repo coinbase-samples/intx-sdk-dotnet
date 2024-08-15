@@ -16,16 +16,17 @@
 
 namespace CoinbaseSdk.IntxExample.Example
 {
-  using System.Text.Json;
   using CoinbaseSdk.Core.Credentials;
   using CoinbaseSdk.Core.Error;
+  using CoinbaseSdk.Core.Serialization;
   using CoinbaseSdk.Intx.Client;
+  using CoinbaseSdk.Intx.FeeRates;
   using CoinbaseSdk.Intx.Instruments;
   using CoinbaseSdk.Intx.Portfolios;
 
   class Example
   {
-    static void Main()
+    static async Task Main()
     {
       string? credentialsBlob = Environment.GetEnvironmentVariable("COINBASE_INTX_CREDENTIALS");
       if (credentialsBlob == null)
@@ -34,7 +35,9 @@ namespace CoinbaseSdk.IntxExample.Example
         return;
       }
 
-      var credentials = JsonSerializer.Deserialize<CoinbaseCredentials>(credentialsBlob, new JsonSerializerOptions(JsonSerializerDefaults.Web));
+      var serializer = new JsonUtility();
+
+      var credentials = serializer.Deserialize<CoinbaseCredentials>(credentialsBlob);
       var client = new CoinbaseIntxClient(credentials!, "api-n5e1.coinbase.com/api/v1");
 
       var portfolioService = new PortfoliosService(client);
@@ -43,11 +46,12 @@ namespace CoinbaseSdk.IntxExample.Example
         ListPortfoliosResponse listPortfoliosResponse = portfolioService.ListPortfolios();
         foreach (Portfolio portfolio in listPortfoliosResponse.Portfolios)
         {
-          Console.WriteLine($"Portfolio ID: {portfolio.PortfolioId}");
-          Console.WriteLine($"Portfolio UUID: {portfolio.PortfolioUuid}");
-          Console.WriteLine($"Portfolio Name: {portfolio.Name}");
-          Console.WriteLine();
+          Console.WriteLine($"Portfolio: {serializer.Serialize(portfolio.PortfolioId)}");
         }
+
+        GetPortfolioDetailsResponse detailsResponse = portfolioService.GetPortfolioDetails(new GetPortfolioDetailsRequest(listPortfoliosResponse.Portfolios[0].PortfolioId!));
+
+        Console.WriteLine($"Portfolio Details: {serializer.Serialize(detailsResponse)}");
 
         var instrumentsService = new InstrumentsService(client);
         var historicalFundingRates = instrumentsService.GetHistoricalFundingRates(new GetHistoricalFundingRatesRequest
@@ -57,9 +61,27 @@ namespace CoinbaseSdk.IntxExample.Example
 
         foreach (HistoricalFundingRate fundingRate in historicalFundingRates.Results)
         {
-          Console.WriteLine($"Funding Rate: {fundingRate.FundingRate}");
-          Console.WriteLine($"Event Time: {fundingRate.EventTime}");
-          Console.WriteLine();
+          Console.WriteLine($"Funding Rate: {serializer.Serialize(fundingRate.FundingRate)}");
+        }
+
+        var getDailyTradingVolumesResponse = instrumentsService.GetDailyTradingVolumes(new GetDailyTradingVolumesRequest
+        {
+          Instruments = "BTC-PERP",
+          TimeFrom = DateTimeOffset.Parse("2024-08-15T00:00:00Z"),
+        });
+
+        foreach (InstrumentDailyTradingVolumes.Result dailyTradingVolume in getDailyTradingVolumesResponse.Results)
+        {
+          Console.WriteLine($"Daily Trading: {serializer.Serialize(dailyTradingVolume)}");
+        }
+
+        var feeRatesService = new FeeRatesService(client);
+
+        ListFeeRateTiersResponse listFeeRateTiersResponse = await feeRatesService.ListFeeRateTiersAsync();
+
+        foreach (FeeRate feeRate in listFeeRateTiersResponse.Results)
+        {
+          Console.WriteLine($"FeeRate: {serializer.Serialize(feeRate)}");
         }
 
       }

@@ -16,10 +16,34 @@
 
 namespace CoinbaseSdk.Intx.PositionOffsets
 {
+  using System.Net;
   using CoinbaseSdk.Core.Client;
+  using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
 
   public class PositionOffsetsService(ICoinbaseClient client) : CoinbaseService(client)
   {
+    public ListPositionOffsetsResponse ListPositionOffsets(CallOptions? options = null)
+    {
+      return this.Request<ListPositionOffsetsResponse>(
+          HttpMethod.Get,
+          "/poGetsition-offsets",
+          [HttpStatusCode.OK],
+          null,
+          options);
+    }
+
+    public Task<ListPositionOffsetsResponse> ListPositionOffsetsAsync(
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return this.RequestAsync<ListPositionOffsetsResponse>(
+          HttpMethod.Get,
+          "/position-offsets",
+          [HttpStatusCode.OK],
+          null,
+          options,
+          cancellationToken);
+    }
   }
 }

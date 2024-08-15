@@ -86,7 +86,7 @@ namespace CoinbaseSdk.Intx.Portfolios
     public string? LoanCollateralRequirement { get; set; }
 
     [JsonPropertyName("position_offset_notional")]
-    public string? PositionOffsetNotional { get; set; }
+    public double? PositionOffsetNotional { get; set; }
 
     public Summary() { }
 
@@ -115,7 +115,7 @@ namespace CoinbaseSdk.Intx.Portfolios
       private double? _marginOverride;
       private double? _lockUpInitialMargin;
       private string? _loanCollateralRequirement;
-      private string? _positionOffsetNotional;
+      private double? _positionOffsetNotional;
 
       public SummaryBuilder() { }
 
@@ -257,7 +257,7 @@ namespace CoinbaseSdk.Intx.Portfolios
         return this;
       }
 
-      public SummaryBuilder WithPositionOffsetNotional(string? positionOffsetNotional)
+      public SummaryBuilder WithPositionOffsetNotional(double? positionOffsetNotional)
       {
         this._positionOffsetNotional = positionOffsetNotional;
         return this;
