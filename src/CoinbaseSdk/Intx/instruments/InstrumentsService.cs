@@ -22,7 +22,7 @@ namespace CoinbaseSdk.Intx.Instruments
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
 
-  public class InstrumentsService(ICoinbaseClient client) : CoinbaseService(client)
+  public class InstrumentsService(ICoinbaseClient client) : CoinbaseService(client), IInstrumentsService
   {
     public GetAggregatedCandlesResponse GetAggregatedCandlesDataPerInstrument(
       GetAggregatedCandlesRequest request,

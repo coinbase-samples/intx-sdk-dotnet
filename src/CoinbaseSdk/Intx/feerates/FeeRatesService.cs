@@ -20,7 +20,8 @@ namespace CoinbaseSdk.Intx.FeeRates
   using CoinbaseSdk.Core.Client;
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
-  public class FeeRatesService(ICoinbaseClient client) : CoinbaseService(client)
+
+  public class FeeRatesService(ICoinbaseClient client) : CoinbaseService(client), IFeeRatesService
   {
     public ListFeeRateTiersResponse ListFeeRateTiers(CallOptions? options = null)
     {
