@@ -69,21 +69,21 @@ namespace CoinbaseSdk.Intx.Portfolios
 
     public class PortfolioBuilder
     {
-      public string? _portfolioId;
-      public string? _portfolioUuid;
-      public string? _name;
-      public string? _userUuid;
-      public string? _makerFeeRate;
-      public string? _takerFeeRate;
-      public bool? _tradingLock;
-      public bool? _withdrawalLock;
-      public bool? _borrowDisabled;
-      public bool? _isLsp;
-      public bool? _isDefault;
-      public bool? _crossCollateralEnabled;
-      public bool? _autoMarginEnabled;
-      public bool? _preLaunchTradingEnabled;
-      public bool? _positionOffsetsEnabled;
+      private string? _portfolioId;
+      private string? _portfolioUuid;
+      private string? _name;
+      private string? _userUuid;
+      private string? _makerFeeRate;
+      private string? _takerFeeRate;
+      private bool? _tradingLock;
+      private bool? _withdrawalLock;
+      private bool? _borrowDisabled;
+      private bool? _isLsp;
+      private bool? _isDefault;
+      private bool? _crossCollateralEnabled;
+      private bool? _autoMarginEnabled;
+      private bool? _preLaunchTradingEnabled;
+      private bool? _positionOffsetsEnabled;
 
       public PortfolioBuilder() { }
 

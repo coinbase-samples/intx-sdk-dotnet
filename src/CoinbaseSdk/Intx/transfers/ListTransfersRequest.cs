@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-using System.Text.Json.Serialization;
-using CoinbaseSdk.Intx.Common;
-
 namespace CoinbaseSdk.Intx.Transfers
 {
+  using System.Text.Json.Serialization;
+  using CoinbaseSdk.Intx.Common;
+  using CoinbaseSdk.Intx.Model;
+
   public class ListTransfersRequest
   {
     public string? Portfolios { get; set; }

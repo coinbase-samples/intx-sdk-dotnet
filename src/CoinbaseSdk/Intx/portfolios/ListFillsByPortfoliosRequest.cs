@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-using System.Text.Json.Serialization;
-using CoinbaseSdk.Intx.Common;
-
 namespace CoinbaseSdk.Intx.Portfolios
 {
+  using System.Text.Json.Serialization;
+  using CoinbaseSdk.Intx.Common;
+
   public class ListFillsByPortfoliosRequest
   {
     public string[] Portfolios { get; set; } = [];

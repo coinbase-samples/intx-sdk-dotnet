@@ -117,7 +117,7 @@ namespace CoinbaseSdk.Intx.Portfolios
       /// <summary>
       /// Builds the <see cref="ListPortfolioFillsRequest"/>.
       /// </summary>
-      /// <returns><see cref="ListPortfolioFillsRequest">.</returns>
+      /// <returns><see cref="ListPortfolioFillsRequest"/>.</returns>
       /// <exception cref="CoinbaseClientException">If <see cref="_portfolio"/> is null, empty or whitespace.</exception>
       public ListPortfolioFillsRequest Build()
       {

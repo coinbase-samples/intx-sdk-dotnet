@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-using System.Text.Json.Serialization;
-
 namespace CoinbaseSdk.Intx.Instruments
 {
+  using System.Text.Json.Serialization;
+
   public class Instrument
   {
     [JsonPropertyName("instrument_id")]

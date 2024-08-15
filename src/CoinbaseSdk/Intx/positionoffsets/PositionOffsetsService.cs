@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-using CoinbaseSdk.Core.Client;
-using CoinbaseSdk.Core.Service;
-
 namespace CoinbaseSdk.Intx.PositionOffsets
 {
+  using CoinbaseSdk.Core.Client;
+  using CoinbaseSdk.Core.Service;
+
   public class PositionOffsetsService(ICoinbaseClient client) : CoinbaseService(client)
   {
   }

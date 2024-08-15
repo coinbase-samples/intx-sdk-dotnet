@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-using System.Text.Json.Serialization;
-
 namespace CoinbaseSdk.Intx.Transfers
 {
+  using System.Text.Json.Serialization;
+
   public class Counterparty
   {
     [JsonPropertyName("portfolio_uuid")]

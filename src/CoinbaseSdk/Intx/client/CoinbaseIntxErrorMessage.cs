@@ -21,11 +21,11 @@ namespace CoinbaseSdk.Intx.Client
 
   public class CoinbaseIntxErrorMessage : ICoinbaseErrorMessage
   {
-    public required string Title { get; set; }
+    required public string Title { get; set; }
 
-    public required HttpStatusCode Status { get; set; }
+    required public HttpStatusCode Status { get; set; }
 
-    public required string Error { get; set; }
+    required public string Error { get; set; }
 
     public CoinbaseIntxErrorMessage(string title, HttpStatusCode statusCode, string error)
     {
@@ -42,6 +42,5 @@ namespace CoinbaseSdk.Intx.Client
     {
       return new CoinbaseException(this.Status, this.Title);
     }
-
   }
 }

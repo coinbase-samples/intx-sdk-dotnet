@@ -17,7 +17,8 @@
 namespace CoinbaseSdk.Intx.Portfolios
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Intx.Orders;
+  using CoinbaseSdk.Intx.Model;
+
   public class Fill
   {
     [JsonPropertyName("portfolio_id")]
@@ -108,34 +109,34 @@ namespace CoinbaseSdk.Intx.Portfolios
 
     public class Builder
     {
-      public string? _portfolioId;
-      public string? _portfolioUuid;
-      public string? _portfolioName;
-      public string? _fillId;
-      public string? _execId;
-      public string? _orderId;
-      public string? _instrumentId;
-      public string? _instrumentUuid;
-      public string? _symbol;
-      public string? _matchId;
-      public string? _fillPrice;
-      public string? _fillQty;
-      public string? _clientId;
-      public string? _clientOrderId;
-      public string? _orderQty;
-      public string? _limitPrice;
-      public string? _totalFilled;
-      public string? _filledVwap;
-      public DateTimeOffset? _expireTime;
-      public string? _stopPrice;
-      public OrderSide? _side;
-      public string? _tif;
-      public string? _stpMode;
-      public string? _flags;
-      public string? _fee;
-      public string? _feeAsset;
-      public string? _orderStatus;
-      public DateTimeOffset? _eventTime;
+      private string? _portfolioId;
+      private string? _portfolioUuid;
+      private string? _portfolioName;
+      private string? _fillId;
+      private string? _execId;
+      private string? _orderId;
+      private string? _instrumentId;
+      private string? _instrumentUuid;
+      private string? _symbol;
+      private string? _matchId;
+      private string? _fillPrice;
+      private string? _fillQty;
+      private string? _clientId;
+      private string? _clientOrderId;
+      private string? _orderQty;
+      private string? _limitPrice;
+      private string? _totalFilled;
+      private string? _filledVwap;
+      private DateTimeOffset? _expireTime;
+      private string? _stopPrice;
+      private OrderSide? _side;
+      private string? _tif;
+      private string? _stpMode;
+      private string? _flags;
+      private string? _fee;
+      private string? _feeAsset;
+      private string? _orderStatus;
+      private DateTimeOffset? _eventTime;
 
       public Builder() { }
 

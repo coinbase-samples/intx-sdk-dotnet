@@ -17,9 +17,11 @@
 namespace CoinbaseSdk.Intx.Portfolios
 {
   using CoinbaseSdk.Intx.Common;
+
   public class ListPortfolioFillsResponse
   {
     public Pagination? Pagination { get; set; }
+
     public Fill[]? Results { get; set; }
   }
 }

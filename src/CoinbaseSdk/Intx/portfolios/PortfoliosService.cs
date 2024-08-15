@@ -32,8 +32,7 @@ namespace CoinbaseSdk.Intx.Portfolios
         "/portfolios",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
-        options
-      );
+        options);
     }
 
     public Task<CreatePortfolioResponse> CreatePortfolioAsync(
@@ -59,8 +58,7 @@ namespace CoinbaseSdk.Intx.Portfolios
         $"/portfolios/{request.Portfolio}/auto-margin-enabled",
         [HttpStatusCode.OK],
         request,
-        options
-      );
+        options);
     }
 
     public Task<EnableDisableAutoMarginResponse> EnableDisableAutoMarginModeAsync(
@@ -86,8 +84,7 @@ namespace CoinbaseSdk.Intx.Portfolios
         $"/portfolios/{request.Portfolio}/cross-collateral-enabled",
         [HttpStatusCode.OK],
         request,
-        options
-      );
+        options);
     }
 
     public Task<EnableDisableCrossCollateralResponse> EnableDisablePortfolioCrossCollateralAsync(
@@ -139,8 +136,7 @@ namespace CoinbaseSdk.Intx.Portfolios
         $"/portfolios/{request.Portfolio}/detail",
         [HttpStatusCode.OK],
         null,
-        options
-      );
+        options);
     }
 
     public Task<GetPortfolioDetailsResponse> GetPortfolioDetailsAsync(
@@ -166,8 +162,7 @@ namespace CoinbaseSdk.Intx.Portfolios
         $"/portfolios/{request.PortfolioId}",
         [HttpStatusCode.OK],
         null,
-        options
-      );
+        options);
     }
 
     public Task<GetPortfolioResponse> GetPortfolioAsync(
@@ -193,8 +188,7 @@ namespace CoinbaseSdk.Intx.Portfolios
         $"/portfolios/{request.Portfolio}/summary",
         [HttpStatusCode.OK],
         null,
-        options
-      );
+        options);
     }
 
     public Task<GetPortfolioSummaryResponse> GetPortfolioSummaryAsync(
@@ -220,8 +214,7 @@ namespace CoinbaseSdk.Intx.Portfolios
         $"/portfolios/{request.Portfolio}/positions/{request.Instrument}",
         [HttpStatusCode.OK],
         null,
-        options
-      );
+        options);
     }
 
     public Task<GetPositionForPortfolioInstrumentResponse> GetPositionForPortfolioInstrumentAsync(
@@ -380,8 +373,7 @@ namespace CoinbaseSdk.Intx.Portfolios
         $"/portfolios/{request.Portfolio}",
         [HttpStatusCode.OK],
         request,
-        options
-      );
+        options);
     }
 
     public Task<PatchPortfolioResponse> PatchPortfolioAsync(
@@ -407,8 +399,7 @@ namespace CoinbaseSdk.Intx.Portfolios
         $"/portfolios/margin",
         [HttpStatusCode.OK],
         request,
-        options
-      );
+        options);
     }
 
     public Task<SetPortfolioMarginOverrideResponse> SetPortfolioMarginOverrideAsync(
@@ -434,8 +425,7 @@ namespace CoinbaseSdk.Intx.Portfolios
         $"/portfolios/transfer",
         [HttpStatusCode.OK],
         request,
-        options
-      );
+        options);
     }
 
     public Task<TransferFundsResponse> TransferFundsBetweenPortfoliosAsync(
@@ -461,8 +451,7 @@ namespace CoinbaseSdk.Intx.Portfolios
         $"/portfolios/transfer-position",
         [HttpStatusCode.OK],
         request,
-        options
-      );
+        options);
     }
 
     public Task<TransferPositionsResponse> TransferPositionsBetweenPortfoliosAsync(
@@ -488,8 +477,7 @@ namespace CoinbaseSdk.Intx.Portfolios
         $"/portfolios/{request.Portfolio}",
         [HttpStatusCode.OK],
         request,
-        options
-      );
+        options);
     }
 
     public Task<UpdatePortfolioResponse> UpdatePortfolioAsync(

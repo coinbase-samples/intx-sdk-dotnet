@@ -17,6 +17,7 @@
 namespace CoinbaseSdk.Intx.Transfers
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Intx.Model;
 
   public class Transfer
   {

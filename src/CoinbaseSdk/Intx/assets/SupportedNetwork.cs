@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-using System.Text.Json.Serialization;
-
 namespace CoinbaseSdk.Intx.Assets
 {
+  using System.Text.Json.Serialization;
+
   public class SupportedNetwork
   {
     [JsonPropertyName("asset_id")]

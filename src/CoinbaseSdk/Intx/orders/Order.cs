@@ -101,32 +101,32 @@ namespace CoinbaseSdk.Intx.Orders
 
     public class Builder
     {
-      public string? _orderId;
-      public string? _clientOrderId;
-      public string? _side;
-      public string? _instrumentId;
-      public string? _instrumentUuid;
-      public string? _symbol;
-      public string? _portfolioId;
-      public string? _portfolioUuid;
-      public string? _type;
-      public string? _price;
-      public string? _stopPrice;
-      public string? _stopLimitPrice;
-      public string? _size;
-      public string? _tif;
-      public DateTimeOffset? _expireTime;
-      public string? _stpMode;
-      public string? _eventType;
-      public DateTimeOffset? _eventTime;
-      public DateTimeOffset? _submitTime;
-      public string? _orderStatus;
-      public string? _leavesQty;
-      public string? _execQty;
-      public string? _avgPrice;
-      public string? _fee;
-      public bool? _postOnly;
-      public bool? _closeOnly;
+      private string? _orderId;
+      private string? _clientOrderId;
+      private string? _side;
+      private string? _instrumentId;
+      private string? _instrumentUuid;
+      private string? _symbol;
+      private string? _portfolioId;
+      private string? _portfolioUuid;
+      private string? _type;
+      private string? _price;
+      private string? _stopPrice;
+      private string? _stopLimitPrice;
+      private string? _size;
+      private string? _tif;
+      private DateTimeOffset? _expireTime;
+      private string? _stpMode;
+      private string? _eventType;
+      private DateTimeOffset? _eventTime;
+      private DateTimeOffset? _submitTime;
+      private string? _orderStatus;
+      private string? _leavesQty;
+      private string? _execQty;
+      private string? _avgPrice;
+      private string? _fee;
+      private bool? _postOnly;
+      private bool? _closeOnly;
 
       public Builder() { }
 

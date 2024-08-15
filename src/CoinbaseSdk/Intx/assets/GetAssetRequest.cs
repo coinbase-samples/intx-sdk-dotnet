@@ -33,7 +33,7 @@ namespace CoinbaseSdk.Intx.Assets
 
 
       /// <summary>
-      /// Validates the request.>
+      /// Validates the request.
       /// </summary>
       /// <exception cref="CoinbaseClientException">
       /// If <see cref="_assetId"/> is null, empty or whitespace.</exception>

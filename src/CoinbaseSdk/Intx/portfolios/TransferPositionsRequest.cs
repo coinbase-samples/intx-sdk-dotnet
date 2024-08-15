@@ -16,7 +16,8 @@
 
 namespace CoinbaseSdk.Intx.Portfolios
 {
-  using CoinbaseSdk.Intx.Orders;
+  using CoinbaseSdk.Intx.Model;
+
   public class TransferPositionsRequest(
     string from,
     string to,

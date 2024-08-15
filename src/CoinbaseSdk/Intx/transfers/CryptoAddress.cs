@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-using System.Text.Json.Serialization;
-
 namespace CoinbaseSdk.Intx.Transfers
 {
+  using System.Text.Json.Serialization;
+
   public class CryptoAddress
   {
     public string? Address { get; set; }

@@ -57,18 +57,18 @@ namespace CoinbaseSdk.Intx.Portfolios
 
     public class BalanceBuilder
     {
-      public string? _assetId;
-      public string? _assetName;
-      public string? _assetUuid;
-      public string? _quantity;
-      public string? _hold;
-      public string? _holdAvailableForCollateral;
-      public string? _transferHold;
-      public string? _collateralValue;
-      public string? _maxWithdrawAmount;
-      public string? _loan;
-      public string? _loanCollateralRequirement;
-      public string? _pledgedCollateralQuantity;
+      private string? _assetId;
+      private string? _assetName;
+      private string? _assetUuid;
+      private string? _quantity;
+      private string? _hold;
+      private string? _holdAvailableForCollateral;
+      private string? _transferHold;
+      private string? _collateralValue;
+      private string? _maxWithdrawAmount;
+      private string? _loan;
+      private string? _loanCollateralRequirement;
+      private string? _pledgedCollateralQuantity;
 
       public BalanceBuilder() { }
 

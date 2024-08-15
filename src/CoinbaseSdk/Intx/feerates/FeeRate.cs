@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-using System.Text.Json.Serialization;
-
 namespace CoinbaseSdk.Intx.FeeRates
 {
+  using System.Text.Json.Serialization;
+
   public class FeeRate
   {
     [JsonPropertyName("fee_tier_type")]

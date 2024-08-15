@@ -27,6 +27,5 @@ namespace CoinbaseSdk.Intx.Client
 
       return headers;
     }
-
   }
 }

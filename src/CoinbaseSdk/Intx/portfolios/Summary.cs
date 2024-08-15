@@ -92,30 +92,30 @@ namespace CoinbaseSdk.Intx.Portfolios
 
     public class SummaryBuilder
     {
-      public string? _collateral;
-      public string? _unrealizedPnl;
-      public string? _unrealizedPnlPercent;
-      public string? _positionNotional;
-      public string? _openPositionNotional;
-      public string? _pendingFees;
-      public string? _borrow;
-      public string? _accruedInterest;
-      public string? _rollingDebt;
-      public string? _balance;
-      public string? _buyingPower;
-      public double? _portfolioInitialMargin;
-      public double? _portfolioCurrentMargin;
-      public double? _portfolioMaintenanceMargin;
-      public double? _portfolioCloseOutMargin;
-      public bool? _inLiquidation;
-      public double? _portfolioInitialMarginNotional;
-      public double? _portfolioCurrentMarginNotional;
-      public double? _portfolioMaintenanceMarginNotional;
-      public double? _portfolioCloseOutMarginNotional;
-      public double? _marginOverride;
-      public double? _lockUpInitialMargin;
-      public string? _loanCollateralRequirement;
-      public string? _positionOffsetNotional;
+      private string? _collateral;
+      private string? _unrealizedPnl;
+      private string? _unrealizedPnlPercent;
+      private string? _positionNotional;
+      private string? _openPositionNotional;
+      private string? _pendingFees;
+      private string? _borrow;
+      private string? _accruedInterest;
+      private string? _rollingDebt;
+      private string? _balance;
+      private string? _buyingPower;
+      private double? _portfolioInitialMargin;
+      private double? _portfolioCurrentMargin;
+      private double? _portfolioMaintenanceMargin;
+      private double? _portfolioCloseOutMargin;
+      private bool? _inLiquidation;
+      private double? _portfolioInitialMarginNotional;
+      private double? _portfolioCurrentMarginNotional;
+      private double? _portfolioMaintenanceMarginNotional;
+      private double? _portfolioCloseOutMarginNotional;
+      private double? _marginOverride;
+      private double? _lockUpInitialMargin;
+      private string? _loanCollateralRequirement;
+      private string? _positionOffsetNotional;
 
       public SummaryBuilder() { }
 

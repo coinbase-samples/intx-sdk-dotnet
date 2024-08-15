@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-namespace CoinbaseSdk.Intx.model
+namespace CoinbaseSdk.Intx.Model
 {
   public enum TransferStatus
   {

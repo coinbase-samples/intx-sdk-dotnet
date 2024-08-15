@@ -65,20 +65,20 @@ namespace CoinbaseSdk.Intx.Orders
 
     public class Builder
     {
-      public string? _clientOrderId;
-      public string? _side;
-      public string? _size;
-      public string? _tif;
-      public string? _instrument;
-      public string? _type;
-      public string? _price;
-      public string? _stopPrice;
-      public string? _stopLimitPrice;
-      public DateTimeOffset? _expireTime;
-      public string? _portfolio;
-      public string? _user;
-      public string? _stpMode;
-      public bool? _postOnly;
+      private string? _clientOrderId;
+      private string? _side;
+      private string? _size;
+      private string? _tif;
+      private string? _instrument;
+      private string? _type;
+      private string? _price;
+      private string? _stopPrice;
+      private string? _stopLimitPrice;
+      private DateTimeOffset? _expireTime;
+      private string? _portfolio;
+      private string? _user;
+      private string? _stpMode;
+      private bool? _postOnly;
 
       public Builder() { }
 

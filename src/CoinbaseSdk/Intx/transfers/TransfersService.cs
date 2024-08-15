@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-using System.Net;
-using CoinbaseSdk.Core.Client;
-using CoinbaseSdk.Core.Http;
-using CoinbaseSdk.Core.Service;
-
 namespace CoinbaseSdk.Intx.Transfers
 {
+  using System.Net;
+  using CoinbaseSdk.Core.Client;
+  using CoinbaseSdk.Core.Http;
+  using CoinbaseSdk.Core.Service;
+
   public class TransfersService(ICoinbaseClient client) : CoinbaseService(client)
   {
     public CreateCounterpartyIdResponse CreateCounterpartyId(
@@ -32,8 +32,7 @@ namespace CoinbaseSdk.Intx.Transfers
         $"/transfers/create-counterparty-id",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
-        options
-      );
+        options);
     }
 
     public Task<CreateCounterpartyIdResponse> CreateCounterpartyIdAsync(
@@ -47,8 +46,7 @@ namespace CoinbaseSdk.Intx.Transfers
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options,
-        cancellationToken
-      );
+        cancellationToken);
     }
 
     public CreateCryptoAddressResponse CreateCryptoAddress(
@@ -60,8 +58,7 @@ namespace CoinbaseSdk.Intx.Transfers
         $"/transfers/address",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
-        options
-      );
+        options);
     }
 
     public Task<CreateCryptoAddressResponse> CreateCryptoAddressAsync(

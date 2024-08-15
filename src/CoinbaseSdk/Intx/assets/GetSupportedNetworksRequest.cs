@@ -17,6 +17,7 @@
 namespace CoinbaseSdk.Intx.Assets
 {
   using CoinbaseSdk.Core.Error;
+
   public class GetSupportedNetworksRequest(string asset)
   {
     public string Asset { get; set; } = asset;
@@ -44,9 +45,9 @@ namespace CoinbaseSdk.Intx.Assets
       }
 
       /// <summary>
-      /// Builds the <see cref="GetSupportedNetworksRequest"/>. 
+      /// Builds the <see cref="GetSupportedNetworksRequest"/>.
       /// </summary>
-      /// <returns><see cref="GetSupportedNetworksRequest"/>.</returns> 
+      /// <returns><see cref="GetSupportedNetworksRequest"/>.</returns>
       /// <exception cref="CoinbaseClientException">If <see cref="_asset"/> is null, empty, or whitespace.</exception>
       public GetSupportedNetworksRequest Build()
       {

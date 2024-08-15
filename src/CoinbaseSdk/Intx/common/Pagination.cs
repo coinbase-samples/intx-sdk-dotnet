@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-using System.Text.Json.Serialization;
-
 namespace CoinbaseSdk.Intx.Common
 {
+  using System.Text.Json.Serialization;
+
   public class Pagination
   {
     [JsonPropertyName("result_limit")]

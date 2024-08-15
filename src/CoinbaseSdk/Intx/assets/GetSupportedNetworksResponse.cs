@@ -18,7 +18,7 @@ namespace CoinbaseSdk.Intx.Assets
 {
   public class GetSupportedNetworksResponse
   {
-    public SupportedNetwork[] Networks = [];
+    public SupportedNetwork[] Networks { get; set; } = [];
 
     public class GetSupportedNetworksResponseBuilder
     {

@@ -17,6 +17,7 @@
 namespace CoinbaseSdk.Intx.Orders
 {
   using System.Text.Json.Serialization;
+
   public class CancelOrderRequest(string id)
   {
     [JsonIgnore]

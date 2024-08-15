@@ -17,6 +17,8 @@
 namespace CoinbaseSdk.Intx.Orders
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Intx.Model;
+
   public class CancelOrdersRequest
   {
     public string? Portfolio { get; set; }

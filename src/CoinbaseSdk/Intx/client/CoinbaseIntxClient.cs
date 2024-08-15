@@ -77,6 +77,5 @@ namespace CoinbaseSdk.Intx.Client
 
       return this.JsonUtility.Deserialize<T>(response.Content);
     }
-
   }
 }
