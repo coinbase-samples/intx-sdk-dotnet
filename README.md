@@ -14,25 +14,64 @@ The *INTX .NET SDK* is a free and open source sample library released under the
 
 The application and code are only available for demonstration purposes.
 
+## Installation
+
+The _Coinbase INTX .NET SDK_ is vended through [NuGet](https://www.nuget.org/packages/CoinbaseSdk.Intx//) and available for installation via the `dotnet` CLI.
+
+```bash
+dotnet add package CoinbaseSdk.Intx --version x.y.z
+```
+
+or if using [paket](https://fsprojects.github.io/Paket/):
+
+```bash
+paket add CoinbaseSdk.Intx --version x.y.z
+```
+
 ## Usage
 
 To use the _Coinbase INTX .NET SDK_, initialize the Credentials class and create a new client. The Credentials struct is JSON
 enabled. Ensure that INTX API credentials are stored in a secure manner.
 
 ```c#
-public class Main {
-    static void Main()
+  using CoinbaseSdk.Core.Credentials;
+  using CoinbaseSdk.Core.Error;
+  using CoinbaseSdk.Core.Serialization;
+  using CoinbaseSdk.Intx.Client;
+  using CoinbaseSdk.Intx.Portfolios;
+
+  class Example
+  {
+    static async Task Main()
     {
-      string? value = Environment.GetEnvironmentVariable("COINBASE_INTX_CREDENTIALS");
-      if (value == null)
+      string? credentialsBlob = Environment.GetEnvironmentVariable("COINBASE_INTX_CREDENTIALS");
+      if (credentialsBlob == null)
       {
         Console.WriteLine("COINBASE_INTX_CREDENTIALS environment variable not set");
         return;
       }
-      var credentials = new CoinbaseCredentials(value);
-      var client = new CoinbaseIntxClient(credentials);
-      var service = new PortfoliosService(client);
+
+      var serializer = new JsonUtility();
+
+      var credentials = serializer.Deserialize<CoinbaseCredentials>(credentialsBlob);
+      var client = new CoinbaseIntxClient(credentials!, "api-n5e1.coinbase.com/api/v1");
+
+      var portfolioService = new PortfoliosService(client);
+
+      try {
+        ListPortfoliosResponse listPortfoliosResponse = portfolioService.ListPortfolios();
+        foreach (Portfolio portfolio in listPortfoliosResponse.Portfolios)
+        {
+          Console.WriteLine($"Portfolio: {serializer.Serialize(portfolio.PortfolioId)}");
+        }
+      }
+      catch (CoinbaseException e)
+      {
+        Console.WriteLine($"Error: {e.ToString()}");
+        return;
+      }
     }
+  }
 }
 ```
 

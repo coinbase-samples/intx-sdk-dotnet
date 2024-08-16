@@ -20,7 +20,7 @@ namespace CoinbaseSdk.Intx.Assets
   using CoinbaseSdk.Core.Client;
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
-  public class AssetsService(ICoinbaseClient client) : CoinbaseService(client)
+  public class AssetsService(ICoinbaseClient client) : CoinbaseService(client), IAssetsService
   {
     public GetAssetResponse GetAsset(
       GetAssetRequest request,
