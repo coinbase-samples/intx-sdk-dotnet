@@ -55,7 +55,7 @@ namespace CoinbaseSdk.Intx.Assets
 
     public class AssetBuilder
     {
-      private long? _assetId;
+      private string? _assetId;
       private string? _assetUuid;
       private string? _assetName;
       private string? _status;
@@ -67,67 +67,67 @@ namespace CoinbaseSdk.Intx.Assets
       private bool? _ecosystemCollateralLimitBreached;
       private string? _accountCollateralLimit;
 
-      public AssetBuilder WithAssetId(long? assetId)
+      public AssetBuilder WithAssetId(string assetId)
       {
         this._assetId = assetId;
         return this;
       }
 
-      public AssetBuilder WithAssetUuid(string? assetUuid)
+      public AssetBuilder WithAssetUuid(string assetUuid)
       {
         this._assetUuid = assetUuid;
         return this;
       }
 
-      public AssetBuilder WithAssetName(string? assetName)
+      public AssetBuilder WithAssetName(string assetName)
       {
         this._assetName = assetName;
         return this;
       }
 
-      public AssetBuilder WithStatus(string? status)
+      public AssetBuilder WithStatus(string status)
       {
         this._status = status;
         return this;
       }
 
-      public AssetBuilder WithCollateralWeight(double? collateralWeight)
+      public AssetBuilder WithCollateralWeight(double collateralWeight)
       {
         this._collateralWeight = collateralWeight;
         return this;
       }
 
-      public AssetBuilder WithSupportedNetworksEnabled(bool? supportedNetworksEnabled)
+      public AssetBuilder WithSupportedNetworksEnabled(bool supportedNetworksEnabled)
       {
         this._supportedNetworksEnabled = supportedNetworksEnabled;
         return this;
       }
 
-      public AssetBuilder WithMinBorrowQty(int? minBorrowQty)
+      public AssetBuilder WithMinBorrowQty(int minBorrowQty)
       {
         this._minBorrowQty = minBorrowQty;
         return this;
       }
 
-      public AssetBuilder WithMaxBorrowQty(int? maxBorrowQty)
+      public AssetBuilder WithMaxBorrowQty(int maxBorrowQty)
       {
         this._maxBorrowQty = maxBorrowQty;
         return this;
       }
 
-      public AssetBuilder WithLoanCollateralRequirementMultiplier(double? loanCollateralRequirementMultiplier)
+      public AssetBuilder WithLoanCollateralRequirementMultiplier(double loanCollateralRequirementMultiplier)
       {
         this._loanCollateralRequirementMultiplier = loanCollateralRequirementMultiplier;
         return this;
       }
 
-      public AssetBuilder WithEcosystemCollateralLimitBreached(bool? ecosystemCollateralLimitBreached)
+      public AssetBuilder WithEcosystemCollateralLimitBreached(bool ecosystemCollateralLimitBreached)
       {
         this._ecosystemCollateralLimitBreached = ecosystemCollateralLimitBreached;
         return this;
       }
 
-      public AssetBuilder WithAccountCollateralLimit(string? accountCollateralLimit)
+      public AssetBuilder WithAccountCollateralLimit(string accountCollateralLimit)
       {
         this._accountCollateralLimit = accountCollateralLimit;
         return this;
