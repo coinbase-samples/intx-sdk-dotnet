@@ -83,7 +83,6 @@ namespace CoinbaseSdk.IntxExample.Example
         {
           Console.WriteLine($"FeeRate: {serializer.Serialize(feeRate)}");
         }
-
       }
       catch (CoinbaseException e)
       {
