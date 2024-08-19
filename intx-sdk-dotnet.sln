@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CA90C609-CA07-4A68-9D23-486C7AEEDBB9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoinbaseSdk", "CoinbaseSdk", "{58DB1627-9BFB-42BF-BF42-2E93F6F88FCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinbaseSdk.IntxExample", "src\CoinbaseSdk\IntxExample\CoinbaseSdk.IntxExample.csproj", "{E692D5A3-9F6C-49D9-A4A0-92C6CBCFB4D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinbaseSdk.Intx", "src\CoinbaseSdk\Intx\CoinbaseSdk.Intx.csproj", "{9E2CA9B3-985B-4BC4-9304-BF48B418E078}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E692D5A3-9F6C-49D9-A4A0-92C6CBCFB4D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E692D5A3-9F6C-49D9-A4A0-92C6CBCFB4D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E692D5A3-9F6C-49D9-A4A0-92C6CBCFB4D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E692D5A3-9F6C-49D9-A4A0-92C6CBCFB4D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E2CA9B3-985B-4BC4-9304-BF48B418E078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E2CA9B3-985B-4BC4-9304-BF48B418E078}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E2CA9B3-985B-4BC4-9304-BF48B418E078}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E2CA9B3-985B-4BC4-9304-BF48B418E078}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{58DB1627-9BFB-42BF-BF42-2E93F6F88FCC} = {CA90C609-CA07-4A68-9D23-486C7AEEDBB9}
+		{E692D5A3-9F6C-49D9-A4A0-92C6CBCFB4D2} = {58DB1627-9BFB-42BF-BF42-2E93F6F88FCC}
+		{9E2CA9B3-985B-4BC4-9304-BF48B418E078} = {58DB1627-9BFB-42BF-BF42-2E93F6F88FCC}
+	EndGlobalSection
+EndGlobal
