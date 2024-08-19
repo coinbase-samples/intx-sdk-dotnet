@@ -17,11 +17,11 @@
 namespace CoinbaseSdk.Intx.Orders
 {
   using System.Text.Json.Serialization;
-  public class GetOrderRequest(string id)
+  public class GetOrderRequest(string id, string portfolio)
   {
     [JsonIgnore]
     public string Id { get; set; } = id;
 
-    public string? Portfolio { get; set; }
+    public string Portfolio { get; set; } = portfolio;
   }
 }

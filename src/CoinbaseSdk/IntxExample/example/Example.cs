@@ -22,6 +22,7 @@ namespace CoinbaseSdk.IntxExample.Example
   using CoinbaseSdk.Intx.Client;
   using CoinbaseSdk.Intx.FeeRates;
   using CoinbaseSdk.Intx.Instruments;
+  using CoinbaseSdk.Intx.Orders;
   using CoinbaseSdk.Intx.Portfolios;
 
   class Example
@@ -38,7 +39,7 @@ namespace CoinbaseSdk.IntxExample.Example
       var serializer = new JsonUtility();
 
       var credentials = serializer.Deserialize<CoinbaseCredentials>(credentialsBlob);
-      var client = new CoinbaseIntxClient(credentials!, "api-n5e1.coinbase.com/api/v1");
+      var client = new CoinbaseIntxClient(credentials!);
 
       var portfolioService = new PortfoliosService(client);
 
@@ -83,6 +84,38 @@ namespace CoinbaseSdk.IntxExample.Example
         {
           Console.WriteLine($"FeeRate: {serializer.Serialize(feeRate)}");
         }
+
+        var orderService = new OrdersService(client);
+
+        var clientOrderId = Guid.NewGuid().ToString();
+        var orderRequest = new CreateOrderRequest()
+        {
+          Portfolio = listPortfoliosResponse.Portfolios[0].PortfolioId!,
+          ClientOrderId = clientOrderId,
+          Side = "BUY",
+          Instrument = "ETH-USDC",
+          Type = "LIMIT",
+          Tif = "GTC",
+          Size = "0.005",
+          Price = "2000",
+        };
+
+        CreateOrderResponse createOrderResponse = orderService.CreateOrder(orderRequest);
+        Console.WriteLine($"Order: {serializer.Serialize(createOrderResponse)}");
+        Console.WriteLine(" ");
+
+        Thread.Sleep(1000);
+
+        GetOrderResponse getOrderResponse = orderService.GetOrder(
+            new GetOrderRequest(createOrderResponse.Order!.OrderId!, listPortfoliosResponse.Portfolios[0].PortfolioId!));
+        Console.WriteLine($"Order: {serializer.Serialize(getOrderResponse)}");
+        Console.WriteLine(" ");
+
+        var cancelOrderRequest = new CancelOrderRequest(getOrderResponse.Order!.OrderId!, listPortfoliosResponse.Portfolios[0].PortfolioId!);
+        CancelOrdersResponse cancelOrdersResponse = orderService.CancelOrders(cancelOrderRequest);
+        Console.WriteLine($"Cancel Order: {serializer.Serialize(cancelOrdersResponse)}");
+        Console.WriteLine(" ");
+
       }
       catch (CoinbaseException e)
       {

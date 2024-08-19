@@ -87,5 +87,5 @@ The JSON format expected for `COINBASE_INTX_CREDENTIALS` is:
 
 For an example of how to use the client, see the [`Example`](src/CoinbaseSdk/IntxExample/example/Example.cs) class under the CoinbaseSdk.IntxExample.Example namespace.
 
-**Warning**: this does place a market order for a very small amount of ADA. Please ensure that you have the necessary funds in your account before running this code.
+**Warning**: this does place a limit order for a very small amount of ETH-USDC. Please ensure that you have the necessary funds in your account before running this code. If you do have the necessary funds, you may need to track the order incase network errors result in an inability to automatically cancel the order.
 
